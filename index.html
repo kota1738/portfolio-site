@@ -11,6 +11,12 @@
   <meta property="og:title" content="Abdurrahmaan Lakhota — Infrastructure &amp; IT Support">
   <meta property="og:description" content="Final-year Computer Science student. Linux infrastructure, self-hosting, networking and open-source Python tooling.">
 
+  <meta property="og:url" content="https://kota.dpdns.org/">
+
+  <link rel="canonical" href="https://kota.dpdns.org/">
+  <meta name="theme-color" content="#fbfbf9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e0e11" media="(prefers-color-scheme: dark)">
+
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101014'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial,sans-serif' font-size='30' font-weight='600' letter-spacing='-1' fill='%23fafaf8' text-anchor='middle'%3EAL%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -120,8 +126,9 @@
             <h3>Self-hosted media server &amp; compression pipeline</h3>
             <p>
               A Fedora Asahi server on Apple Silicon running fourteen Docker services — Jellyfin,
-              the *arr suite, qBittorrent behind a VPN gateway, Pi-hole DNS filtering, Portainer
-              and a Homepage dashboard — across a 15 TB storage array with scheduled rsync backups.
+              the *arr suite, qBittorrent behind a Gluetun VPN gateway, Pi-hole DNS filtering,
+              n8n automation and a Homepage dashboard — across a 15 TB storage array with
+              scheduled rsync backups.
               I also built a GPU offload pipeline that pulls episodes over SFTP, re-encodes them to
               x265 HEVC on an RTX 3070 and pushes them back, reclaiming over 500 GB.
             </p>
