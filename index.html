@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Abdurrahmaan Lakhota — Infrastructure &amp; IT Support</title>
+  <meta name="description" content="Abdurrahmaan Lakhota — final-year Computer Science student. Linux infrastructure, self-hosting, networking and open-source Python tooling.">
+  <meta name="author" content="Abdurrahmaan Lakhota">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Abdurrahmaan Lakhota — Infrastructure &amp; IT Support">
+  <meta property="og:description" content="Final-year Computer Science student. Linux infrastructure, self-hosting, networking and open-source Python tooling.">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101014'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial,sans-serif' font-size='30' font-weight='600' letter-spacing='-1' fill='%23fafaf8' text-anchor='middle'%3EAL%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top">Abdurrahmaan&nbsp;Lakhota</a>
+
+    <nav class="nav" id="nav" aria-label="Primary">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to dark theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.6M12 18.8v2.6M2.6 12h2.6M18.8 12h2.6M5.4 5.4l1.8 1.8M16.8 16.8l1.8 1.8M18.6 5.4l-1.8 1.8M7.2 16.8l-1.8 1.8"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2Z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+        <span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="wrap">
+      <p class="eyebrow">Leicester, UK &middot; Open to work</p>
+      <h1>I build and run the infrastructure<br>other people rely on.</h1>
+      <p class="lede">
+        Final-year Computer Science student at De Montfort University. I administer a
+        production-style Linux homelab, design and repair networks for freelance clients,
+        and publish small, well-tested open-source tools in Python.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="mailto:abdurrahmaanlakhota@gmail.com">Get in touch</a>
+        <a class="btn btn-quiet" href="https://github.com/kota1738" target="_blank" rel="noopener">
+          GitHub
+          <svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 16 16 8M9.4 8H16v6.6"/></svg>
+        </a>
+      </div>
+
+      <dl class="facts">
+        <div><dt>Docker services in production</dt><dd>14</dd></div>
+        <div><dt>Media array under management</dt><dd>15 TB</dd></div>
+        <div><dt>Player records analysed</dt><dd>183</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap grid">
+      <div class="col-head">
+        <h2>About</h2>
+        <span class="num">01</span>
+      </div>
+      <div class="col-body prose">
+        <p>
+          I am a final-year BSc (Hons) Computer Science student who learns by running real systems
+          rather than sample projects. My homelab is an ARM64 Fedora server hosting fourteen
+          containerised services behind DNS filtering and a VPN — it has real users, real uptime
+          expectations, and real failures to diagnose.
+        </p>
+        <p>
+          Since 2024 I have worked freelance on IT and web services: building websites and home
+          servers, setting up networks and NAS storage, and providing the follow-up support that
+          keeps them running. Alongside that I write open-source developer tooling and am working
+          through the Cisco CCNA.
+        </p>
+        <p>
+          I am looking for an IT support or infrastructure role where that hands-on background
+          is useful from day one.
+        </p>
+        <ul class="tick-list">
+          <li>BSc (Hons) Computer Science — predicted 2:1, graduating 2026</li>
+          <li>Cisco CCNA — in progress</li>
+          <li>Available immediately, on-site or remote</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="wrap grid">
+      <div class="col-head">
+        <h2>Selected work</h2>
+        <span class="num">02</span>
+      </div>
+      <div class="col-body">
+        <ol class="work-list">
+
+          <li class="work-item">
+            <div class="work-meta">
+              <span class="tag">Infrastructure</span>
+              <span class="year">2024 — present</span>
+            </div>
+            <h3>Self-hosted media server &amp; compression pipeline</h3>
+            <p>
+              A Fedora Asahi server on Apple Silicon running fourteen Docker services — Jellyfin,
+              the *arr suite, qBittorrent behind a VPN gateway, Pi-hole DNS filtering, Portainer
+              and a Homepage dashboard — across a 15 TB storage array with scheduled rsync backups.
+              I also built a GPU offload pipeline that pulls episodes over SFTP, re-encodes them to
+              x265 HEVC on an RTX 3070 and pushes them back, reclaiming over 500 GB.
+            </p>
+            <ul class="stack">
+              <li>Fedora / SELinux</li><li>Docker Compose</li><li>WireGuard</li>
+              <li>Pi-hole</li><li>PowerShell</li><li>ffmpeg / NVENC</li>
+            </ul>
+          </li>
+
+          <li class="work-item">
+            <div class="work-meta">
+              <span class="tag">Data analysis</span>
+              <span class="year">2025 — 2026</span>
+            </div>
+            <h3>Regional playstyle analysis in professional Valorant</h3>
+            <p>
+              Final-year dissertation. I scraped and cleaned a dataset of 183 professional players
+              from the 2025 VCT season, then applied statistical hypothesis testing to establish
+              which performance differences between regions are real and which are noise. Delivered
+              as reproducible Jupyter notebooks with an interactive explorer.
+            </p>
+            <ul class="stack">
+              <li>Python</li><li>pandas</li><li>Jupyter</li><li>Hypothesis testing</li>
+            </ul>
+          </li>
+
+          <li class="work-item">
+            <div class="work-meta">
+              <span class="tag">Open source</span>
+              <span class="year">2026</span>
+            </div>
+            <h3>anchorwatch</h3>
+            <p>
+              A zero-dependency command-line linter for Markdown documentation. It reimplements
+              GitHub's own anchor-generation algorithm so that broken in-page links are caught in
+              CI rather than by readers. Tested with pytest, linted with ruff, MIT licensed.
+            </p>
+            <ul class="stack">
+              <li>Python</li><li>pytest</li><li>ruff</li><li>GitHub Actions</li>
+            </ul>
+            <a class="work-link" href="https://github.com/kota1738/anchorwatch" target="_blank" rel="noopener">
+              View repository
+              <svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 16 16 8M9.4 8H16v6.6"/></svg>
+            </a>
+          </li>
+
+          <li class="work-item">
+            <div class="work-meta">
+              <span class="tag">Open source</span>
+              <span class="year">2026</span>
+            </div>
+            <h3>changelog-guard</h3>
+            <p>
+              A linter that reconciles <code>CHANGELOG.md</code> against a repository's git tags and
+              history — validating semantic-version ordering, catching undocumented releases and
+              verifying that every compare link actually resolves.
+            </p>
+            <ul class="stack">
+              <li>Python</li><li>Git plumbing</li><li>pytest</li><li>CI</li>
+            </ul>
+            <a class="work-link" href="https://github.com/kota1738/changelog-guard" target="_blank" rel="noopener">
+              View repository
+              <svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 16 16 8M9.4 8H16v6.6"/></svg>
+            </a>
+          </li>
+
+          <li class="work-item">
+            <div class="work-meta">
+              <span class="tag">Web application</span>
+              <span class="year">2026</span>
+            </div>
+            <h3>Student Course Hub</h3>
+            <p>
+              A server-rendered course management application built on Deno with a hand-rolled MVC
+              structure — controllers, views and middleware over a SQLite database, with
+              authentication and role-based access.
+            </p>
+            <ul class="stack">
+              <li>Deno</li><li>TypeScript</li><li>SQLite</li><li>MVC</li>
+            </ul>
+          </li>
+
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="wrap grid">
+      <div class="col-head">
+        <h2>Skills</h2>
+        <span class="num">03</span>
+      </div>
+      <div class="col-body">
+        <div class="skills">
+          <div class="skill-group">
+            <h3>Systems &amp; support</h3>
+            <p>Windows and Linux administration, Microsoft 365, hardware diagnostics and repair,
+               remote and on-site end-user support, documentation and handover.</p>
+          </div>
+          <div class="skill-group">
+            <h3>Networking</h3>
+            <p>DNS and DNS filtering, WireGuard VPN and VPN gateway routing, firewall rules,
+               static addressing, home and small-office network design. CCNA in progress.</p>
+          </div>
+          <div class="skill-group">
+            <h3>Infrastructure</h3>
+            <p>Docker and Docker Compose, self-hosted service stacks, reverse proxying and
+               tunnelling, backup strategy, NAS builds, SELinux, Git.</p>
+          </div>
+          <div class="skill-group">
+            <h3>Development</h3>
+            <p>Python, JavaScript and TypeScript, HTML and CSS, SQL and schema design, statistical
+               analysis with pandas, automated testing, Agile team delivery.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="wrap grid">
+      <div class="col-head">
+        <h2>Experience</h2>
+        <span class="num">04</span>
+      </div>
+      <div class="col-body">
+        <ul class="timeline">
+          <li>
+            <span class="year">2024 — present</span>
+            <h3>Freelance IT &amp; Web Services</h3>
+            <p class="org">Self-employed</p>
+            <p>
+              Websites, home servers and NAS deployments for private clients, plus network setup,
+              VPN and DNS configuration, hardware repair and ongoing troubleshooting — delivered
+              both remotely and on-site.
+            </p>
+          </li>
+        </ul>
+
+        <h2 class="sub-head">Education</h2>
+        <ul class="timeline">
+          <li>
+            <span class="year">Oct 2023 — Oct 2026 (expected)</span>
+            <h3>BSc (Hons) Computer Science</h3>
+            <p class="org">De Montfort University &middot; Predicted 2:1</p>
+            <p>
+              Algorithms, object-oriented programming, operating systems and networks, databases,
+              big data and machine learning, web applications, Agile development. Dissertation in
+              statistical esports analysis.
+            </p>
+          </li>
+          <li>
+            <span class="year">In progress</span>
+            <h3>Cisco Certified Network Associate (CCNA)</h3>
+            <p class="org">Cisco</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-contact" id="contact">
+    <div class="wrap grid">
+      <div class="col-head">
+        <h2>Contact</h2>
+        <span class="num">05</span>
+      </div>
+      <div class="col-body">
+        <p class="contact-lede">
+          Open to IT support and infrastructure roles, and to freelance work.
+          Email is the fastest way to reach me.
+        </p>
+        <ul class="contact-list">
+          <li>
+            <span class="label">Email</span>
+            <a href="mailto:abdurrahmaanlakhota@gmail.com">abdurrahmaanlakhota@gmail.com</a>
+          </li>
+          <li>
+            <span class="label">GitHub</span>
+            <a href="https://github.com/kota1738" target="_blank" rel="noopener">github.com/kota1738</a>
+          </li>
+          <li>
+            <span class="label">Availability</span>
+            <span class="plain">Immediate &middot; Leicester or remote</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>&copy; <span id="year">2026</span> Abdurrahmaan Lakhota</p>
+    <p class="muted">Built by hand — HTML, CSS and JavaScript, no frameworks.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
