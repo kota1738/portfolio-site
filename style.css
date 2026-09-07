@@ -2,26 +2,27 @@
    Abdurrahmaan Lakhota — portfolio
    Vanilla CSS. No build step, no dependencies, no external requests.
 
-   Dark-first. Palette matches the GitHub profile README:
-   #0d1117 ground · #1b2733 panel · #2b3a4a line · #3d5a6c mid · #8ba9c4 ice.
+   Dark-first. Palette drawn from Terror in Resonance: desaturated teal-cyan,
+   concrete grey, and warm ochre light. Dark is the navy-teal night — never
+   pure black; light is the bleached summer daylight.
    ========================================================================== */
 
 /* --- Tokens: dark (default) --------------------------------------------- */
+/* Navy-teal night. Contrast measured against --bg / --panel. */
 
 :root {
-  --bg:        #0d1117;   /* ground                                    */
-  --panel:     #1b2733;   /* raised surface                            */
-  --panel-2:   #16212c;   /* header bars inside panels                 */
-  --line:      #2b3a4a;   /* hairlines                                 */
-  --mid:       #3d5a6c;   /* brackets, ticks, decorative strokes       */
-  --ink:       #c9d6e2;   /* body copy      12.59:1 on --bg            */
-  --ink-hi:    #e8eff5;   /* headings                                  */
-  --ice:       #8ba9c4;   /* labels, accents  8.41:1 on --bg           */
-  --dim:       #829cb6;   /* quietest text    6.70:1 / 5.44:1 on panel */
-  --signal:    #e0a253;   /* broadcast tick   8.40:1 on --bg           */
-  --header-bg: rgba(13, 17, 23, 0.82);
+  --bg:        #0e1a1e;   /* night ground, teal-leaning, never black   */
+  --panel:     #15252a;   /* raised surface                            */
+  --panel-2:   #122024;   /* header bars inside panels                 */
+  --line:      #24393f;   /* hairlines                                 */
+  --mid:       #4a757e;   /* decorative strokes only  3.49 / 3.11      */
+  --ink:       #c3d4d6;   /* body copy               11.57 / 10.31     */
+  --ink-hi:    #e9f1f1;   /* headings                15.46 / 13.77     */
+  --ice:       #7cb2bd;   /* labels, accents          7.56 /  6.74     */
+  --dim:       #8aa8ae;   /* quietest text            7.00 /  6.24     */
+  --signal:    #e0a05a;   /* ochre light              7.89 /  7.03     */
+  --header-bg: rgba(14, 26, 30, 0.82);
   --grain-op:  0.05;
-  --wave-op:   0.55;
   --scan-op:   0.16;
   --scan-col:  rgba(0, 0, 0, 0.32);
 
@@ -37,22 +38,21 @@
 }
 
 /* --- Tokens: light ------------------------------------------------------ */
-/* Cold bleached daylight — grey-blue paper, near-black ink. */
+/* Bleached summer daylight — hazy concrete paper, teal ink, ochre accent. */
 
 :root[data-theme="light"] {
-  --bg:        #eceef1;
-  --panel:     #f6f7f9;
-  --panel-2:   #e4e8ec;
-  --line:      #c3ccd4;
-  --mid:       #8fa3b3;
-  --ink:       #2c3a46;   /* 10.03:1 on --bg  */
-  --ink-hi:    #0d1117;   /* 16.26:1 on --bg  */
-  --ice:       #2f5a78;   /*  6.37:1 on --bg  */
-  --dim:       #4a5c6b;   /*  6.00:1 on --bg  */
-  --signal:    #8a5010;   /*  5.65:1 on --bg  */
-  --header-bg: rgba(236, 238, 241, 0.84);
+  --bg:        #e9ece9;   /* bleached concrete                         */
+  --panel:     #f4f6f3;
+  --panel-2:   #dfe4e1;
+  --line:      #c0cac6;
+  --mid:       #6b878d;   /* decorative strokes only  3.22 / 3.53      */
+  --ink:       #293739;   /* 10.38 / 11.37 */
+  --ink-hi:    #0e1a1e;   /* 14.88 / 16.30 */
+  --ice:       #2a5f6b;   /*  5.98 /  6.56 */
+  --dim:       #45585c;   /*  6.29 /  6.89 */
+  --signal:    #8a5010;   /*  5.45 /  5.97 */
+  --header-bg: rgba(233, 236, 233, 0.84);
   --grain-op:  0.035;
-  --wave-op:   0.30;
   --scan-op:   0.16;
   --scan-col:  rgba(29, 40, 51, 0.30);
 
@@ -61,19 +61,18 @@
 
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
-    --bg:        #eceef1;
-    --panel:     #f6f7f9;
-    --panel-2:   #e4e8ec;
-    --line:      #c3ccd4;
-    --mid:       #8fa3b3;
-    --ink:       #2c3a46;
-    --ink-hi:    #0d1117;
-    --ice:       #2f5a78;
-    --dim:       #4a5c6b;
+    --bg:        #e9ece9;
+    --panel:     #f4f6f3;
+    --panel-2:   #dfe4e1;
+    --line:      #c0cac6;
+    --mid:       #6b878d;
+    --ink:       #293739;
+    --ink-hi:    #0e1a1e;
+    --ice:       #2a5f6b;
+    --dim:       #45585c;
     --signal:    #8a5010;
-    --header-bg: rgba(236, 238, 241, 0.84);
+    --header-bg: rgba(233, 236, 233, 0.84);
     --grain-op:  0.035;
-    --wave-op:   0.30;
     --scan-op:   0.16;
     --scan-col:  rgba(29, 40, 51, 0.30);
 
@@ -347,43 +346,6 @@ html:not(.js) #theme-toggle { display: none; }
   overflow: hidden;
 }
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-.hero-wave {
-  position: absolute;
-  left: 0; right: 0;
-  bottom: 12%;
-  width: 100%;
-  height: clamp(120px, 26vw, 260px);
-  fill: none;
-  stroke: var(--mid);
-  stroke-width: 1;
-  stroke-linejoin: round;
-  opacity: var(--wave-op);
-}
-.hero-sweep {
-  position: absolute;
-  left: 0; right: 0;
-  height: 34%;
-  top: -34%;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    color-mix(in srgb, var(--mid) 22%, transparent),
-    transparent
-  );
-  /* Finite: the page settles rather than moving forever (WCAG 2.2.2). */
-  animation: sweep 14s linear 3;
-}
-@keyframes sweep {
-  0%   { transform: translateY(0); }
-  100% { transform: translateY(400%); }
-}
-
 .hero-inner { position: relative; }
 
 .intercept {
@@ -428,26 +390,57 @@ html:not(.js) #theme-toggle { display: none; }
   margin-left: 0.55rem;
 }
 
-.codename {
-  font-family: var(--mono);
-  font-size: clamp(0.7rem, 2vw, 0.85rem);
-  font-weight: 700;
-  letter-spacing: 0.62em;
-  color: var(--ice);
-  margin: 0 0 0.7rem;
-}
-
-.name {
+.headline {
   font-family: var(--mono);
   font-weight: 700;
-  font-size: clamp(2.45rem, 10.5vw, 6.6rem);
-  line-height: 0.94;
-  letter-spacing: -0.045em;
+  font-size: clamp(2.3rem, 8.5vw, 5.1rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
   text-transform: uppercase;
   margin: 0 0 1.5rem;
 }
-.name span { display: block; }
-.name span + span { color: var(--ice); }
+.headline span { color: var(--ice); }
+
+/* --- Dual trace ---------------------------------------------------------- */
+/* Two channels, 09 quiet and 12 active. Decorative instrument panel. */
+
+.trace {
+  margin-top: clamp(1.8rem, 4vw, 2.8rem);
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 0.85rem 1rem 0.7rem;
+}
+.trace-head,
+.trace-legend {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.trace-title { color: var(--ice); font-weight: 700; }
+.trace-sub   { color: var(--dim); }
+.trace-head  { justify-content: space-between; margin-bottom: 0.7rem; }
+
+.trace-svg {
+  display: block;
+  width: 100%;
+  height: clamp(96px, 17vw, 170px);
+  fill: none;
+  stroke-linejoin: round;
+}
+.trace-grid line { stroke: var(--line); stroke-width: 1; }
+.t-nine   { stroke: var(--mid);  stroke-width: 1; }
+.t-twelve { stroke: var(--ice);  stroke-width: 1.6; }
+
+.trace-legend { margin-top: 0.65rem; }
+.leg { display: inline-flex; align-items: baseline; gap: 0.4rem; font-weight: 700; }
+.leg-key { font-weight: 400; letter-spacing: 0.2em; color: var(--dim); }
+.leg-nine   { color: var(--dim); }
+.leg-twelve { color: var(--ice); }
 
 .role {
   max-width: 46ch;
@@ -894,7 +887,6 @@ html:not(.js) #theme-toggle { display: none; }
 @media (max-width: 620px) {
   .brand-code { display: none; }
   .work-year { margin-left: 0; }
-  .codename { letter-spacing: 0.4em; }
 }
 
 @media (max-width: 400px) {
@@ -918,7 +910,6 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .hero-sweep { display: none; }
   .intercept .dot { animation: none; opacity: 1; }
   html.js .reveal { opacity: 1; transform: none; }
 }
@@ -942,7 +933,6 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
     --dim:     #444444;
     --signal:  #000000;
     --grain-op: 0;
-    --wave-op:  0;
     --scan-op:  0;
     color-scheme: light;
   }
@@ -957,12 +947,13 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
     transition: none !important;
   }
 
+  /* Decorative instrument panel: screen only — a CV does not need an
+     oscilloscope, and it would cost most of a page. */
   .overlay-grain,
   .overlay-scan,
-  .hero-bg,
   .site-header,
   .hero-actions,
-  .codename,
+  .trace,
   .skip-link { display: none !important; }
 
   html, body {
