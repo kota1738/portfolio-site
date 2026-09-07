@@ -406,6 +406,20 @@ html:not(.js) #theme-toggle { display: none; }
 }
 @keyframes blip { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
 
+/* Sphinx designation 09-12 — a paired numeral, set as one glyph group.
+   The second numeral is the brighter of the two so it reads as the primary. */
+.pair { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pair-a { color: var(--dim); }
+.pair-b { color: var(--ice); font-weight: 700; }
+.pair-dot {
+  display: inline-block;
+  width: 1px;
+  height: 0.82em;
+  margin: 0 0.42em;
+  vertical-align: -0.08em;
+  background: var(--dim);
+}
+
 /* Separators trail their own segment so a wrap never starts a line with a slash. */
 .intercept-seg { white-space: nowrap; }
 .intercept-seg:not(:last-child)::after {
@@ -440,36 +454,15 @@ html:not(.js) #theme-toggle { display: none; }
   font-size: clamp(1.02rem, 1.9vw, 1.25rem);
   color: var(--ink-hi);
   line-height: 1.45;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   padding-top: 1.4rem;
   border-top: 1px solid var(--line);
-}
-
-.riddle {
-  margin: 0 0 2rem;
-  padding-left: 1.1rem;
-  border-left: 2px solid var(--mid);
-  max-width: 56ch;
-}
-.riddle p {
-  font-family: var(--mono);
-  font-size: 0.88rem;
-  line-height: 1.75;
-  color: var(--ice);
-  margin-bottom: 0.55rem;
-}
-.riddle .riddle-answer {
-  color: var(--dim);
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: 0;
 }
 
 .lede {
   max-width: 62ch;
   font-size: 1.0625rem;
-  margin-bottom: 2.2rem;
+  margin-bottom: 2.4rem;
 }
 
 .hero-actions {
@@ -558,8 +551,7 @@ html:not(.js) #theme-toggle { display: none; }
   letter-spacing: -0.04em;
   line-height: 1;
 }
-.readout-val  { font-size: clamp(2.1rem, 5vw, 2.9rem); }
-.readout-unit { font-size: 1.05rem; color: var(--ice); letter-spacing: 0; }
+.readout-val { font-size: clamp(2.1rem, 5vw, 2.9rem); }
 
 /* --- Sections ----------------------------------------------------------- */
 
@@ -971,7 +963,6 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
   .site-header,
   .hero-actions,
   .codename,
-  .riddle,
   .skip-link { display: none !important; }
 
   html, body {

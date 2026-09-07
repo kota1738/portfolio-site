@@ -81,7 +81,7 @@
       <p class="intercept">
         <span class="dot" aria-hidden="true"></span>
         <span class="intercept-seg">SPHINX</span>
-        <span class="intercept-seg">TRANSMISSION 12</span>
+        <span class="intercept-seg">TRANSMISSION&nbsp;<span class="pair"><span class="pair-a">09</span><span class="pair-dot" aria-hidden="true"></span><span class="pair-b">12</span></span></span>
         <span class="intercept-seg">52.6369&deg;N 1.1398&deg;W</span>
         <span class="intercept-seg">LEICESTER, UK</span>
       </p>
@@ -95,15 +95,10 @@
 
       <p class="role">Infrastructure &amp; IT support &mdash; final-year BSc Computer Science, De&nbsp;Montfort&nbsp;University</p>
 
-      <blockquote class="riddle">
-        <p>&ldquo;I answer to a number rather than a name. I keep fourteen things alive on one machine and fifteen terabytes honest.&rdquo;</p>
-        <p class="riddle-answer">The riddle is decoration. The CV is not.</p>
-      </blockquote>
-
       <p class="lede">
-        I administer a production-style Linux homelab, design and repair networks for freelance
-        clients, and publish small, well-tested open-source tools in Python. Looking for an IT
-        support or infrastructure role &mdash; available immediately, on-site or remote.
+        I run a Linux home server with fourteen Docker services, set up and repair networks for
+        freelance clients, and publish small Python tools. Looking for an IT support or
+        infrastructure role. Available immediately, on-site or remote.
       </p>
 
       <div class="hero-actions">
@@ -122,8 +117,8 @@
           <dd><span class="readout-val">14</span></dd>
         </div>
         <div class="readout-cell">
-          <dt>Media array under management</dt>
-          <dd><span class="readout-val">15</span><span class="readout-unit">TB</span></dd>
+          <dt>Open-source tools published</dt>
+          <dd><span class="readout-val">2</span></dd>
         </div>
         <div class="readout-cell">
           <dt>Player records analysed</dt>
@@ -143,21 +138,17 @@
       <div class="sec-body">
         <div class="prose">
           <p>
-            I am a final-year BSc (Hons) Computer Science student who learns by running real systems
-            rather than sample projects. My homelab is an ARM64 Fedora server hosting fourteen
-            containerised services behind DNS filtering and a VPN &mdash; it has real users, real
-            uptime expectations, and real failures to diagnose at one in the morning with nobody to
-            escalate to.
+            I am a final-year BSc (Hons) Computer Science student at De Montfort University. At home
+            I run an ARM64 Fedora server hosting fourteen containerised services behind DNS
+            filtering and a VPN.
           </p>
           <p>
-            Since 2024 I have worked freelance on IT and web services: building websites and home
-            servers, setting up networks and NAS storage, and providing the follow-up support that
-            keeps them running. Alongside that I write open-source developer tooling and am working
-            through the Cisco CCNA.
+            Since 2024 I have worked freelance on IT and web services: websites, home servers, NAS
+            storage, network setup, and the support that keeps them running. I also publish
+            open-source developer tools and am working through the Cisco CCNA.
           </p>
           <p>
-            I am looking for an IT support or infrastructure role where that hands-on background is
-            useful from day one.
+            I am looking for an IT support or infrastructure role.
           </p>
         </div>
 
@@ -189,14 +180,13 @@
             </p>
             <h3>Self-hosted media server &amp; compression pipeline</h3>
             <p>
-              A Fedora Asahi server on Apple Silicon running fourteen Docker services &mdash;
-              Jellyfin, the *arr suite, qBittorrent behind a Gluetun VPN gateway, Pi-hole DNS
-              filtering, n8n automation and a Homepage dashboard &mdash; across a 15&nbsp;TB storage
-              array with scheduled rsync backups.
+              A Fedora Asahi server on Apple Silicon running fourteen Docker services: Jellyfin, the
+              *arr suite, qBittorrent behind a Gluetun VPN gateway, Pi-hole DNS filtering, n8n
+              automation and a Homepage dashboard. Backups run on a schedule with rsync.
             </p>
             <p>
-              I also built a GPU offload pipeline that pulls episodes over SFTP, re-encodes them to
-              x265 HEVC on an RTX&nbsp;3070 and pushes them back, reclaiming over 500&nbsp;GB.
+              A separate pipeline pulls episodes over SFTP, re-encodes them to x265 HEVC on an
+              RTX&nbsp;3070 and pushes them back. It has reclaimed over 500&nbsp;GB.
             </p>
             <ul class="stack">
               <li>Fedora / SELinux</li><li>Docker Compose</li><li>WireGuard</li>
@@ -213,9 +203,9 @@
             <h3>Regional playstyle analysis in professional Valorant</h3>
             <p>
               Final-year dissertation. I scraped and cleaned a dataset of 183 professional players
-              from the 2025 VCT season, then applied statistical hypothesis testing to establish
-              which performance differences between regions are real and which are noise. Delivered
-              as reproducible Jupyter notebooks with an interactive explorer.
+              from the 2025 VCT season, then used hypothesis testing to find which differences
+              between regions are statistically significant. Delivered as reproducible Jupyter
+              notebooks with an interactive explorer.
             </p>
             <ul class="stack">
               <li>Python</li><li>pandas</li><li>Jupyter</li><li>Hypothesis testing</li>
@@ -231,8 +221,8 @@
             <h3>anchorwatch</h3>
             <p>
               A zero-dependency command-line linter for Markdown documentation. It reimplements
-              GitHub's own anchor-generation algorithm so that broken in-page links are caught in CI
-              rather than by readers. Tested with pytest, linted with ruff, MIT licensed.
+              GitHub's anchor-generation algorithm, so broken in-page links are caught in CI.
+              Tested with pytest, linted with ruff, MIT licensed.
             </p>
             <ul class="stack">
               <li>Python</li><li>pytest</li><li>ruff</li><li>GitHub Actions</li>
@@ -251,9 +241,9 @@
             </p>
             <h3>changelog-guard</h3>
             <p>
-              A linter that reconciles <code>CHANGELOG.md</code> against a repository's git tags and
-              history &mdash; validating semantic-version ordering, catching undocumented releases
-              and verifying that every compare link actually resolves.
+              A linter that checks <code>CHANGELOG.md</code> against a repository's git tags and
+              history: semantic-version ordering, undocumented releases, and compare links that do
+              not resolve.
             </p>
             <ul class="stack">
               <li>Python</li><li>Git plumbing</li><li>pytest</li><li>CI</li>
@@ -272,9 +262,8 @@
             </p>
             <h3>Student Course Hub</h3>
             <p>
-              A server-rendered course management application built on Deno with a hand-rolled MVC
-              structure &mdash; controllers, views and middleware over a SQLite database, with
-              authentication and role-based access.
+              A server-rendered course management app on Deno. Hand-rolled MVC &mdash; controllers,
+              views and middleware &mdash; over SQLite, with authentication and role-based access.
             </p>
             <ul class="stack">
               <li>Deno</li><li>TypeScript</li><li>SQLite</li><li>MVC</li>
@@ -334,9 +323,8 @@
             <h3>Freelance IT &amp; Web Services</h3>
             <p class="tl-org">Self-employed</p>
             <p>
-              Websites, home servers and NAS deployments for private clients, plus network setup,
-              VPN and DNS configuration, hardware repair and ongoing troubleshooting &mdash;
-              delivered both remotely and on-site.
+              Websites, home servers and NAS deployments for private clients. Network setup, VPN and
+              DNS configuration, hardware repair and ongoing troubleshooting, remote and on-site.
             </p>
           </li>
           <li>
@@ -398,9 +386,9 @@
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <p class="footer-sign"><span aria-hidden="true">VON</span> &mdash; end of transmission.</p>
+    <p class="footer-sign"><span class="pair"><span class="pair-a">09</span><span class="pair-dot" aria-hidden="true"></span><span class="pair-b">12</span></span> &mdash; end of transmission</p>
     <p>&copy; <span id="year">2026</span> Abdurrahmaan Lakhota</p>
-    <p class="muted">Built by hand &mdash; HTML, CSS and JavaScript. No frameworks, no external requests.</p>
+    <p class="muted">Built by hand. HTML, CSS and JavaScript, no frameworks, no external requests.</p>
   </div>
 </footer>
 
