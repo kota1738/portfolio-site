@@ -3,42 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Page not found — Abdurrahmaan Lakhota</title>
+  <title>Signal lost (404) — Abdurrahmaan Lakhota</title>
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#fbfbf9" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0e0e11" media="(prefers-color-scheme: dark)">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101014'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial,sans-serif' font-size='30' font-weight='600' letter-spacing='-1' fill='%23fafaf8' text-anchor='middle'%3EAL%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#eceef1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230d1117'/%3E%3Crect x='2.5' y='2.5' width='59' height='59' fill='none' stroke='%233d5a6c' stroke-width='2'/%3E%3Ctext x='32' y='42' font-family='Consolas,Menlo,monospace' font-size='26' font-weight='700' letter-spacing='-1' fill='%238ba9c4' text-anchor='middle'%3EAL%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="/style.css">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('al-theme');
+        if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+      document.documentElement.className += ' js';
+    }());
+  </script>
   <style>
-    .error-page {
+    .lost {
       min-height: 100vh;
+      min-height: 100svh;
       display: grid;
-      place-content: center;
-      text-align: left;
-      padding: var(--pad);
+      align-content: center;
+      padding-block: clamp(3rem, 12vh, 7rem);
     }
-    .error-code {
+    .lost-inner { max-width: 46rem; }
+
+    .lost .intercept { margin-bottom: 2rem; }
+    .lost .intercept .dot { background: var(--dim); box-shadow: none; animation: none; }
+
+    .lost-code {
+      display: block;
       font-family: var(--mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--ink-3);
+      font-weight: 700;
+      font-size: clamp(4rem, 22vw, 11rem);
+      line-height: 0.86;
+      letter-spacing: -0.06em;
+      color: var(--ice);
+      margin: 0 0 1.5rem;
+    }
+    .lost h1 {
+      font-size: clamp(1.5rem, 4.5vw, 2.4rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
       margin-bottom: 1.25rem;
     }
-    .error-page h1 {
-      font-size: clamp(1.9rem, 5vw, 2.75rem);
-      letter-spacing: -0.03em;
-      margin-bottom: 1rem;
+    .lost p.lost-body {
+      max-width: 48ch;
+      margin-bottom: 1.1em;
     }
-    .error-page p { max-width: 42ch; margin-bottom: 2rem; }
+
+    .lost-log {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      line-height: 1.9;
+      color: var(--dim);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 1rem 1.15rem;
+      margin: 2rem 0;
+      overflow-x: auto;
+    }
+    .lost-log b { color: var(--ice); font-weight: 700; }
+    .lost-log span { color: var(--signal); font-weight: 700; }
   </style>
 </head>
 <body>
-  <main class="error-page">
-    <p class="error-code">Error 404</p>
-    <h1>That page doesn't exist.</h1>
-    <p>The link may be out of date, or the address slightly off. Everything on this site lives on a single page.</p>
-    <a class="btn btn-solid" href="/">Back to the start</a>
-  </main>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="overlay-grain" aria-hidden="true"></div>
+<div class="overlay-scan" aria-hidden="true"></div>
+
+<main class="lost" id="main">
+  <div class="wrap lost-inner">
+
+    <p class="intercept">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="intercept-seg">SPHINX</span>
+      <span class="intercept-seg">CARRIER LOST</span>
+      <span class="intercept-seg">NO SUCH TRANSMISSION</span>
+    </p>
+
+    <p class="lost-code" aria-hidden="true">404</p>
+
+    <h1>There is nothing broadcasting on this frequency.</h1>
+
+    <p class="lost-body">
+      The link may be out of date, or the address slightly off. Everything worth reading on this
+      site lives on a single page.
+    </p>
+
+    <pre class="lost-log" aria-hidden="true">resolve  kota.dpdns.org        <b>ok</b>
+route    /                     <b>ok</b>
+route    &lt;this address&gt;        <span>no route</span>
+action   return to origin</pre>
+
+    <p>
+      <a class="btn btn-solid" href="/">Back to the start</a>
+    </p>
+
+  </div>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>

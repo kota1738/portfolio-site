@@ -4,42 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Abdurrahmaan Lakhota — Infrastructure &amp; IT Support</title>
-  <meta name="description" content="Abdurrahmaan Lakhota — final-year Computer Science student. Linux infrastructure, self-hosting, networking and open-source Python tooling.">
+  <meta name="description" content="Abdurrahmaan Lakhota — final-year Computer Science student in Leicester, UK. Linux infrastructure, self-hosting, networking and open-source Python tooling. Open to IT support and infrastructure roles.">
   <meta name="author" content="Abdurrahmaan Lakhota">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Abdurrahmaan Lakhota — Infrastructure &amp; IT Support">
   <meta property="og:description" content="Final-year Computer Science student. Linux infrastructure, self-hosting, networking and open-source Python tooling.">
-
   <meta property="og:url" content="https://kota.dpdns.org/">
 
   <link rel="canonical" href="https://kota.dpdns.org/">
-  <meta name="theme-color" content="#fbfbf9" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0e0e11" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#eceef1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101014'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial,sans-serif' font-size='30' font-weight='600' letter-spacing='-1' fill='%23fafaf8' text-anchor='middle'%3EAL%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230d1117'/%3E%3Crect x='2.5' y='2.5' width='59' height='59' fill='none' stroke='%233d5a6c' stroke-width='2'/%3E%3Ctext x='32' y='42' font-family='Consolas,Menlo,monospace' font-size='26' font-weight='700' letter-spacing='-1' fill='%238ba9c4' text-anchor='middle'%3EAL%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css">
+  <script>
+    /* Theme bootstrap — applies the stored preference before first paint.
+       Renders no content; the page is complete without it. */
+    (function () {
+      try {
+        var t = localStorage.getItem('al-theme');
+        if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+      document.documentElement.className += ' js';
+    }());
+  </script>
 </head>
 <body>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
+<div class="overlay-grain" aria-hidden="true"></div>
+<div class="overlay-scan" aria-hidden="true"></div>
+
 <header class="site-header" id="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="#top">Abdurrahmaan&nbsp;Lakhota</a>
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">AL</span>
+      <span class="brand-name">Abdurrahmaan&nbsp;Lakhota</span>
+      <span class="brand-code" aria-hidden="true">TWELVE</span>
+    </a>
 
     <nav class="nav" id="nav" aria-label="Primary">
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about"><span class="nav-num">01</span> Signal</a></li>
+        <li><a href="#work"><span class="nav-num">02</span> Work</a></li>
+        <li><a href="#skills"><span class="nav-num">03</span> Skills</a></li>
+        <li><a href="#experience"><span class="nav-num">04</span> Record</a></li>
+        <li><a href="#contact"><span class="nav-num">05</span> Contact</a></li>
       </ul>
     </nav>
 
     <div class="header-actions">
-      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to dark theme">
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to light theme">
         <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.6M12 18.8v2.6M2.6 12h2.6M18.8 12h2.6M5.4 5.4l1.8 1.8M16.8 16.8l1.8 1.8M18.6 5.4l-1.8 1.8M7.2 16.8l-1.8 1.8"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2Z"/></svg>
       </button>
@@ -53,84 +70,133 @@
 <main id="main">
 
   <section class="hero" id="top">
-    <div class="wrap">
-      <p class="eyebrow">Leicester, UK &middot; Open to work</p>
-      <h1>I build and run the infrastructure<br>other people rely on.</h1>
-      <p class="lede">
-        Final-year Computer Science student at De Montfort University. I administer a
-        production-style Linux homelab, design and repair networks for freelance clients,
-        and publish small, well-tested open-source tools in Python.
+    <div class="hero-bg" aria-hidden="true">
+      <svg class="hero-wave" viewBox="0 0 1200 80" preserveAspectRatio="none" focusable="false">
+        <polyline vector-effect="non-scaling-stroke" points="0.0,40.0 10.0,46.5 20.0,45.1 30.0,51.1 40.0,55.9 50.0,51.5 60.0,53.5 70.0,53.7 80.0,44.9 90.0,43.2 100.0,40.8 110.0,31.4 120.0,31.3 130.0,32.5 140.0,28.4 150.0,34.5 160.0,41.6 170.0,42.3 180.0,51.4 190.0,58.9 200.0,57.8 210.0,62.9 220.0,64.1 230.0,55.1 240.0,51.6 250.0,45.0 260.0,30.8 270.0,26.2 280.0,22.2 290.0,13.5 300.0,15.6 310.0,18.2 320.0,16.3 330.0,25.7 340.0,35.9 350.0,40.2 360.0,51.5 370.0,57.2 380.0,51.7 390.0,51.6 400.0,48.8 410.0,40.6 420.0,41.6 430.0,39.4 440.0,28.1 450.0,23.8 460.0,19.1 470.0,14.1 480.0,24.8 490.0,37.2 500.0,41.6 510.0,48.7 520.0,47.9 530.0,40.4 540.0,46.3 550.0,55.3 560.0,59.1 570.0,65.6 580.0,59.4 590.0,40.8 600.0,33.2 610.0,32.2 620.0,35.4 630.0,50.4 640.0,55.7 650.0,44.7 660.0,36.7 670.0,29.4 680.0,27.7 690.0,44.7 700.0,58.5 710.0,56.9 720.0,51.7 730.0,37.0 740.0,22.3 750.0,28.4 760.0,40.1 770.0,45.9 780.0,50.9 790.0,41.3 800.0,23.2 810.0,20.6 820.0,25.3 830.0,32.3 840.0,46.3 850.0,47.3 860.0,34.7 870.0,29.3 880.0,25.5 890.0,25.7 900.0,39.4 910.0,46.4 920.0,41.8 930.0,40.4 940.0,34.1 950.0,28.1 960.0,36.9 970.0,43.5 980.0,43.6 990.0,48.1 1000.0,44.4 1010.0,36.7 1020.0,41.1 1030.0,43.8 1040.0,43.3 1050.0,50.3 1060.0,49.4 1070.0,42.9 1080.0,45.7 1090.0,45.1 1100.0,42.1 1110.0,48.3 1120.0,48.3 1130.0,43.2 1140.0,46.3 1150.0,44.3 1160.0,39.6 1170.0,44.4 1180.0,43.7 1190.0,39.1 1200.0,42.9"/>
+      </svg>
+      <span class="hero-sweep"></span>
+    </div>
+
+    <div class="wrap hero-inner">
+      <p class="intercept">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="intercept-seg">SPHINX</span>
+        <span class="intercept-seg">TRANSMISSION 12</span>
+        <span class="intercept-seg">52.6369&deg;N 1.1398&deg;W</span>
+        <span class="intercept-seg">LEICESTER, UK</span>
       </p>
+
+      <p class="codename" aria-hidden="true">TWELVE</p>
+
+      <h1 class="name">
+        <span>Abdurrahmaan</span>
+        <span>Lakhota</span>
+      </h1>
+
+      <p class="role">Infrastructure &amp; IT support &mdash; final-year BSc Computer Science, De&nbsp;Montfort&nbsp;University</p>
+
+      <blockquote class="riddle">
+        <p>&ldquo;I answer to a number rather than a name. I keep fourteen things alive on one machine and fifteen terabytes honest.&rdquo;</p>
+        <p class="riddle-answer">The riddle is decoration. The CV is not.</p>
+      </blockquote>
+
+      <p class="lede">
+        I administer a production-style Linux homelab, design and repair networks for freelance
+        clients, and publish small, well-tested open-source tools in Python. Looking for an IT
+        support or infrastructure role &mdash; available immediately, on-site or remote.
+      </p>
+
       <div class="hero-actions">
-        <a class="btn btn-solid" href="mailto:abdurrahmaanlakhota@gmail.com">Get in touch</a>
+        <a class="btn btn-solid" href="mailto:abdurrahmaanlakhota@gmail.com">Email me</a>
         <a class="btn btn-quiet" href="https://github.com/kota1738" target="_blank" rel="noopener">
-          GitHub
+          github.com/kota1738
           <svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 16 16 8M9.4 8H16v6.6"/></svg>
         </a>
       </div>
+    </div>
 
-      <dl class="facts">
-        <div><dt>Docker services in production</dt><dd>14</dd></div>
-        <div><dt>Media array under management</dt><dd>15 TB</dd></div>
-        <div><dt>Player records analysed</dt><dd>183</dd></div>
+    <div class="wrap">
+      <dl class="readout">
+        <div class="readout-cell">
+          <dt>Docker services in production</dt>
+          <dd><span class="readout-val">14</span></dd>
+        </div>
+        <div class="readout-cell">
+          <dt>Media array under management</dt>
+          <dd><span class="readout-val">15</span><span class="readout-unit">TB</span></dd>
+        </div>
+        <div class="readout-cell">
+          <dt>Player records analysed</dt>
+          <dd><span class="readout-val">183</span></dd>
+        </div>
       </dl>
     </div>
   </section>
 
-  <section class="section" id="about">
-    <div class="wrap grid">
-      <div class="col-head">
-        <h2>About</h2>
-        <span class="num">01</span>
+  <section class="section" id="about" aria-labelledby="h-about">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker"><span class="kicker-num">01</span><span class="kicker-rule" aria-hidden="true"></span><span class="kicker-code">SIGNAL</span></p>
+        <h2 id="h-about">About</h2>
       </div>
-      <div class="col-body prose">
-        <p>
-          I am a final-year BSc (Hons) Computer Science student who learns by running real systems
-          rather than sample projects. My homelab is an ARM64 Fedora server hosting fourteen
-          containerised services behind DNS filtering and a VPN — it has real users, real uptime
-          expectations, and real failures to diagnose.
-        </p>
-        <p>
-          Since 2024 I have worked freelance on IT and web services: building websites and home
-          servers, setting up networks and NAS storage, and providing the follow-up support that
-          keeps them running. Alongside that I write open-source developer tooling and am working
-          through the Cisco CCNA.
-        </p>
-        <p>
-          I am looking for an IT support or infrastructure role where that hands-on background
-          is useful from day one.
-        </p>
-        <ul class="tick-list">
-          <li>BSc (Hons) Computer Science — predicted 2:1, graduating 2026</li>
-          <li>Cisco CCNA — in progress</li>
-          <li>Available immediately, on-site or remote</li>
+
+      <div class="sec-body">
+        <div class="prose">
+          <p>
+            I am a final-year BSc (Hons) Computer Science student who learns by running real systems
+            rather than sample projects. My homelab is an ARM64 Fedora server hosting fourteen
+            containerised services behind DNS filtering and a VPN &mdash; it has real users, real
+            uptime expectations, and real failures to diagnose at one in the morning with nobody to
+            escalate to.
+          </p>
+          <p>
+            Since 2024 I have worked freelance on IT and web services: building websites and home
+            servers, setting up networks and NAS storage, and providing the follow-up support that
+            keeps them running. Alongside that I write open-source developer tooling and am working
+            through the Cisco CCNA.
+          </p>
+          <p>
+            I am looking for an IT support or infrastructure role where that hands-on background is
+            useful from day one.
+          </p>
+        </div>
+
+        <ul class="facts-list frame">
+          <li><span class="facts-key">Study</span><span class="facts-val">BSc (Hons) Computer Science &mdash; predicted 2:1, graduating 2026</span></li>
+          <li><span class="facts-key">Cert</span><span class="facts-val">Cisco CCNA &mdash; in progress</span></li>
+          <li><span class="facts-key">Status</span><span class="facts-val">Available immediately &mdash; on-site or remote</span></li>
+          <li><span class="facts-key">Base</span><span class="facts-val">Leicester, United Kingdom</span></li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="section" id="work">
-    <div class="wrap grid">
-      <div class="col-head">
-        <h2>Selected work</h2>
-        <span class="num">02</span>
+  <section class="section" id="work" aria-labelledby="h-work">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker"><span class="kicker-num">02</span><span class="kicker-rule" aria-hidden="true"></span><span class="kicker-code">DEVICES</span></p>
+        <h2 id="h-work">Selected work</h2>
       </div>
-      <div class="col-body">
+
+      <div class="sec-body">
         <ol class="work-list">
 
-          <li class="work-item">
-            <div class="work-meta">
-              <span class="tag">Infrastructure</span>
-              <span class="year">2024 — present</span>
-            </div>
+          <li class="work-item frame">
+            <p class="work-bar">
+              <span class="work-id">REC_01</span>
+              <span class="work-tag">Infrastructure</span>
+              <span class="work-year">2024 &mdash; present</span>
+            </p>
             <h3>Self-hosted media server &amp; compression pipeline</h3>
             <p>
-              A Fedora Asahi server on Apple Silicon running fourteen Docker services — Jellyfin,
-              the *arr suite, qBittorrent behind a Gluetun VPN gateway, Pi-hole DNS filtering,
-              n8n automation and a Homepage dashboard — across a 15 TB storage array with
-              scheduled rsync backups.
+              A Fedora Asahi server on Apple Silicon running fourteen Docker services &mdash;
+              Jellyfin, the *arr suite, qBittorrent behind a Gluetun VPN gateway, Pi-hole DNS
+              filtering, n8n automation and a Homepage dashboard &mdash; across a 15&nbsp;TB storage
+              array with scheduled rsync backups.
+            </p>
+            <p>
               I also built a GPU offload pipeline that pulls episodes over SFTP, re-encodes them to
-              x265 HEVC on an RTX 3070 and pushes them back, reclaiming over 500 GB.
+              x265 HEVC on an RTX&nbsp;3070 and pushes them back, reclaiming over 500&nbsp;GB.
             </p>
             <ul class="stack">
               <li>Fedora / SELinux</li><li>Docker Compose</li><li>WireGuard</li>
@@ -138,11 +204,12 @@
             </ul>
           </li>
 
-          <li class="work-item">
-            <div class="work-meta">
-              <span class="tag">Data analysis</span>
-              <span class="year">2025 — 2026</span>
-            </div>
+          <li class="work-item frame">
+            <p class="work-bar">
+              <span class="work-id">REC_02</span>
+              <span class="work-tag">Data analysis</span>
+              <span class="work-year">2025 &mdash; 2026</span>
+            </p>
             <h3>Regional playstyle analysis in professional Valorant</h3>
             <p>
               Final-year dissertation. I scraped and cleaned a dataset of 183 professional players
@@ -155,16 +222,17 @@
             </ul>
           </li>
 
-          <li class="work-item">
-            <div class="work-meta">
-              <span class="tag">Open source</span>
-              <span class="year">2026</span>
-            </div>
+          <li class="work-item frame">
+            <p class="work-bar">
+              <span class="work-id">REC_03</span>
+              <span class="work-tag">Open source</span>
+              <span class="work-year">2026</span>
+            </p>
             <h3>anchorwatch</h3>
             <p>
               A zero-dependency command-line linter for Markdown documentation. It reimplements
-              GitHub's own anchor-generation algorithm so that broken in-page links are caught in
-              CI rather than by readers. Tested with pytest, linted with ruff, MIT licensed.
+              GitHub's own anchor-generation algorithm so that broken in-page links are caught in CI
+              rather than by readers. Tested with pytest, linted with ruff, MIT licensed.
             </p>
             <ul class="stack">
               <li>Python</li><li>pytest</li><li>ruff</li><li>GitHub Actions</li>
@@ -175,16 +243,17 @@
             </a>
           </li>
 
-          <li class="work-item">
-            <div class="work-meta">
-              <span class="tag">Open source</span>
-              <span class="year">2026</span>
-            </div>
+          <li class="work-item frame">
+            <p class="work-bar">
+              <span class="work-id">REC_04</span>
+              <span class="work-tag">Open source</span>
+              <span class="work-year">2026</span>
+            </p>
             <h3>changelog-guard</h3>
             <p>
               A linter that reconciles <code>CHANGELOG.md</code> against a repository's git tags and
-              history — validating semantic-version ordering, catching undocumented releases and
-              verifying that every compare link actually resolves.
+              history &mdash; validating semantic-version ordering, catching undocumented releases
+              and verifying that every compare link actually resolves.
             </p>
             <ul class="stack">
               <li>Python</li><li>Git plumbing</li><li>pytest</li><li>CI</li>
@@ -195,15 +264,16 @@
             </a>
           </li>
 
-          <li class="work-item">
-            <div class="work-meta">
-              <span class="tag">Web application</span>
-              <span class="year">2026</span>
-            </div>
+          <li class="work-item frame">
+            <p class="work-bar">
+              <span class="work-id">REC_05</span>
+              <span class="work-tag">Web application</span>
+              <span class="work-year">2026</span>
+            </p>
             <h3>Student Course Hub</h3>
             <p>
               A server-rendered course management application built on Deno with a hand-rolled MVC
-              structure — controllers, views and middleware over a SQLite database, with
+              structure &mdash; controllers, views and middleware over a SQLite database, with
               authentication and role-based access.
             </p>
             <ul class="stack">
@@ -216,30 +286,31 @@
     </div>
   </section>
 
-  <section class="section" id="skills">
-    <div class="wrap grid">
-      <div class="col-head">
-        <h2>Skills</h2>
-        <span class="num">03</span>
+  <section class="section" id="skills" aria-labelledby="h-skills">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker"><span class="kicker-num">03</span><span class="kicker-rule" aria-hidden="true"></span><span class="kicker-code">APPARATUS</span></p>
+        <h2 id="h-skills">Skills</h2>
       </div>
-      <div class="col-body">
+
+      <div class="sec-body">
         <div class="skills">
-          <div class="skill-group">
+          <div class="skill-group frame">
             <h3>Systems &amp; support</h3>
             <p>Windows and Linux administration, Microsoft 365, hardware diagnostics and repair,
                remote and on-site end-user support, documentation and handover.</p>
           </div>
-          <div class="skill-group">
+          <div class="skill-group frame">
             <h3>Networking</h3>
             <p>DNS and DNS filtering, WireGuard VPN and VPN gateway routing, firewall rules,
                static addressing, home and small-office network design. CCNA in progress.</p>
           </div>
-          <div class="skill-group">
+          <div class="skill-group frame">
             <h3>Infrastructure</h3>
             <p>Docker and Docker Compose, self-hosted service stacks, reverse proxying and
                tunnelling, backup strategy, NAS builds, SELinux, Git.</p>
           </div>
-          <div class="skill-group">
+          <div class="skill-group frame">
             <h3>Development</h3>
             <p>Python, JavaScript and TypeScript, HTML and CSS, SQL and schema design, statistical
                analysis with pandas, automated testing, Agile team delivery.</p>
@@ -249,32 +320,29 @@
     </div>
   </section>
 
-  <section class="section" id="experience">
-    <div class="wrap grid">
-      <div class="col-head">
-        <h2>Experience</h2>
-        <span class="num">04</span>
+  <section class="section" id="experience" aria-labelledby="h-experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker"><span class="kicker-num">04</span><span class="kicker-rule" aria-hidden="true"></span><span class="kicker-code">RECORD</span></p>
+        <h2 id="h-experience">Experience &amp; education</h2>
       </div>
-      <div class="col-body">
+
+      <div class="sec-body">
         <ul class="timeline">
           <li>
-            <span class="year">2024 — present</span>
+            <p class="tl-year">2024 &mdash; present</p>
             <h3>Freelance IT &amp; Web Services</h3>
-            <p class="org">Self-employed</p>
+            <p class="tl-org">Self-employed</p>
             <p>
               Websites, home servers and NAS deployments for private clients, plus network setup,
-              VPN and DNS configuration, hardware repair and ongoing troubleshooting — delivered
-              both remotely and on-site.
+              VPN and DNS configuration, hardware repair and ongoing troubleshooting &mdash;
+              delivered both remotely and on-site.
             </p>
           </li>
-        </ul>
-
-        <h2 class="sub-head">Education</h2>
-        <ul class="timeline">
           <li>
-            <span class="year">Oct 2023 — Oct 2026 (expected)</span>
+            <p class="tl-year">Oct 2023 &mdash; Oct 2026 (expected)</p>
             <h3>BSc (Hons) Computer Science</h3>
-            <p class="org">De Montfort University &middot; Predicted 2:1</p>
+            <p class="tl-org">De Montfort University &middot; Predicted 2:1</p>
             <p>
               Algorithms, object-oriented programming, operating systems and networks, databases,
               big data and machine learning, web applications, Agile development. Dissertation in
@@ -282,27 +350,29 @@
             </p>
           </li>
           <li>
-            <span class="year">In progress</span>
+            <p class="tl-year">In progress</p>
             <h3>Cisco Certified Network Associate (CCNA)</h3>
-            <p class="org">Cisco</p>
+            <p class="tl-org">Cisco</p>
           </li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="section section-contact" id="contact">
-    <div class="wrap grid">
-      <div class="col-head">
-        <h2>Contact</h2>
-        <span class="num">05</span>
+  <section class="section section-contact" id="contact" aria-labelledby="h-contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker"><span class="kicker-num">05</span><span class="kicker-rule" aria-hidden="true"></span><span class="kicker-code">CONTACT</span></p>
+        <h2 id="h-contact">Get in touch</h2>
       </div>
-      <div class="col-body">
+
+      <div class="sec-body">
         <p class="contact-lede">
           Open to IT support and infrastructure roles, and to freelance work.
           Email is the fastest way to reach me.
         </p>
-        <ul class="contact-list">
+
+        <ul class="contact-list frame">
           <li>
             <span class="label">Email</span>
             <a href="mailto:abdurrahmaanlakhota@gmail.com">abdurrahmaanlakhota@gmail.com</a>
@@ -312,8 +382,12 @@
             <a href="https://github.com/kota1738" target="_blank" rel="noopener">github.com/kota1738</a>
           </li>
           <li>
+            <span class="label">Location</span>
+            <span class="plain">Leicester, UK &mdash; or remote</span>
+          </li>
+          <li>
             <span class="label">Availability</span>
-            <span class="plain">Immediate &middot; Leicester or remote</span>
+            <span class="plain">Immediate</span>
           </li>
         </ul>
       </div>
@@ -324,8 +398,9 @@
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
+    <p class="footer-sign"><span aria-hidden="true">VON</span> &mdash; end of transmission.</p>
     <p>&copy; <span id="year">2026</span> Abdurrahmaan Lakhota</p>
-    <p class="muted">Built by hand — HTML, CSS and JavaScript, no frameworks.</p>
+    <p class="muted">Built by hand &mdash; HTML, CSS and JavaScript. No frameworks, no external requests.</p>
   </div>
 </footer>
 
