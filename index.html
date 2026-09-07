@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Abdurrahmaan Lakhota — Infrastructure &amp; IT Support</title>
-  <meta name="description" content="Abdurrahmaan Lakhota — final-year Computer Science student in Leicester, UK. Linux infrastructure, self-hosting, networking and open-source Python tooling. Open to IT support and infrastructure roles.">
+  <meta name="description" content="Infrastructure and IT support. Linux administration, Docker service stacks, VPN gateway routing and DNS filtering, plus zero-dependency open-source Python tooling. Open to IT support and infrastructure roles.">
   <meta name="author" content="Abdurrahmaan Lakhota">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Abdurrahmaan Lakhota — Infrastructure &amp; IT Support">
-  <meta property="og:description" content="Final-year Computer Science student. Linux infrastructure, self-hosting, networking and open-source Python tooling.">
+  <meta property="og:description" content="Linux administration, Docker service stacks, VPN gateway routing and DNS filtering, plus zero-dependency open-source Python tooling.">
   <meta property="og:url" content="https://kota.dpdns.org/">
 
   <link rel="canonical" href="https://kota.dpdns.org/">
-  <meta name="theme-color" content="#eceef1" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#e9ece9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1a1e" media="(prefers-color-scheme: dark)">
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230d1117'/%3E%3Crect x='2.5' y='2.5' width='59' height='59' fill='none' stroke='%233d5a6c' stroke-width='2'/%3E%3Ctext x='32' y='42' font-family='Consolas,Menlo,monospace' font-size='26' font-weight='700' letter-spacing='-1' fill='%238ba9c4' text-anchor='middle'%3EAL%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230e1a1e'/%3E%3Crect x='2.5' y='2.5' width='59' height='59' fill='none' stroke='%234a757e' stroke-width='2'/%3E%3Ctext x='32' y='42' font-family='Consolas,Menlo,monospace' font-size='26' font-weight='700' letter-spacing='-1' fill='%237cb2bd' text-anchor='middle'%3EAL%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css">
   <script>
     /* Theme bootstrap — applies the stored preference before first paint.
@@ -39,9 +39,9 @@
 
 <header class="site-header" id="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="#top">
+    <a class="brand" href="#top" aria-label="Back to top">
       <span class="brand-mark" aria-hidden="true">AL</span>
-      <span class="brand-name">Abdurrahmaan&nbsp;Lakhota</span>
+      <span class="brand-name">Infrastructure &amp; IT&nbsp;support</span>
       <span class="brand-code" aria-hidden="true">TWELVE</span>
     </a>
 
@@ -70,35 +70,23 @@
 <main id="main">
 
   <section class="hero" id="top">
-    <div class="hero-bg" aria-hidden="true">
-      <svg class="hero-wave" viewBox="0 0 1200 80" preserveAspectRatio="none" focusable="false">
-        <polyline vector-effect="non-scaling-stroke" points="0.0,40.0 10.0,46.5 20.0,45.1 30.0,51.1 40.0,55.9 50.0,51.5 60.0,53.5 70.0,53.7 80.0,44.9 90.0,43.2 100.0,40.8 110.0,31.4 120.0,31.3 130.0,32.5 140.0,28.4 150.0,34.5 160.0,41.6 170.0,42.3 180.0,51.4 190.0,58.9 200.0,57.8 210.0,62.9 220.0,64.1 230.0,55.1 240.0,51.6 250.0,45.0 260.0,30.8 270.0,26.2 280.0,22.2 290.0,13.5 300.0,15.6 310.0,18.2 320.0,16.3 330.0,25.7 340.0,35.9 350.0,40.2 360.0,51.5 370.0,57.2 380.0,51.7 390.0,51.6 400.0,48.8 410.0,40.6 420.0,41.6 430.0,39.4 440.0,28.1 450.0,23.8 460.0,19.1 470.0,14.1 480.0,24.8 490.0,37.2 500.0,41.6 510.0,48.7 520.0,47.9 530.0,40.4 540.0,46.3 550.0,55.3 560.0,59.1 570.0,65.6 580.0,59.4 590.0,40.8 600.0,33.2 610.0,32.2 620.0,35.4 630.0,50.4 640.0,55.7 650.0,44.7 660.0,36.7 670.0,29.4 680.0,27.7 690.0,44.7 700.0,58.5 710.0,56.9 720.0,51.7 730.0,37.0 740.0,22.3 750.0,28.4 760.0,40.1 770.0,45.9 780.0,50.9 790.0,41.3 800.0,23.2 810.0,20.6 820.0,25.3 830.0,32.3 840.0,46.3 850.0,47.3 860.0,34.7 870.0,29.3 880.0,25.5 890.0,25.7 900.0,39.4 910.0,46.4 920.0,41.8 930.0,40.4 940.0,34.1 950.0,28.1 960.0,36.9 970.0,43.5 980.0,43.6 990.0,48.1 1000.0,44.4 1010.0,36.7 1020.0,41.1 1030.0,43.8 1040.0,43.3 1050.0,50.3 1060.0,49.4 1070.0,42.9 1080.0,45.7 1090.0,45.1 1100.0,42.1 1110.0,48.3 1120.0,48.3 1130.0,43.2 1140.0,46.3 1150.0,44.3 1160.0,39.6 1170.0,44.4 1180.0,43.7 1190.0,39.1 1200.0,42.9"/>
-      </svg>
-      <span class="hero-sweep"></span>
-    </div>
-
     <div class="wrap hero-inner">
       <p class="intercept">
         <span class="dot" aria-hidden="true"></span>
         <span class="intercept-seg">SPHINX</span>
         <span class="intercept-seg">TRANSMISSION&nbsp;<span class="pair"><span class="pair-a">09</span><span class="pair-dot" aria-hidden="true"></span><span class="pair-b">12</span></span></span>
-        <span class="intercept-seg">52.6369&deg;N 1.1398&deg;W</span>
-        <span class="intercept-seg">LEICESTER, UK</span>
+        <span class="intercept-seg">OPEN TO WORK</span>
       </p>
 
-      <p class="codename" aria-hidden="true">TWELVE</p>
+      <h1 class="headline">Infrastructure<br><span>&amp; IT&nbsp;support</span></h1>
 
-      <h1 class="name">
-        <span>Abdurrahmaan</span>
-        <span>Lakhota</span>
-      </h1>
-
-      <p class="role">Infrastructure &amp; IT support &mdash; final-year BSc Computer Science, De&nbsp;Montfort&nbsp;University</p>
+      <p class="role">Final-year BSc (Hons) Computer&nbsp;Science &mdash; predicted 2:1, graduating&nbsp;2026</p>
 
       <p class="lede">
-        I run a Linux home server with fourteen Docker services, set up and repair networks for
-        freelance clients, and publish small Python tools. Looking for an IT support or
-        infrastructure role. Available immediately, on-site or remote.
+        I run a Linux server with fourteen Docker services, published with no inbound ports open.
+        I set up and repair networks for freelance clients, and write zero-dependency Python
+        tooling. Looking for an IT support or infrastructure role &mdash; available immediately,
+        on-site or remote.
       </p>
 
       <div class="hero-actions">
@@ -111,18 +99,36 @@
     </div>
 
     <div class="wrap">
+      <div class="trace frame" aria-hidden="true">
+        <p class="trace-head">
+          <span class="trace-title">DUAL TRACE</span>
+          <span class="trace-sub">CONTINUOUS &middot; 2 CH</span>
+        </p>
+        <svg class="trace-svg" viewBox="0 0 1000 200" preserveAspectRatio="none" focusable="false">
+          <g class="trace-grid"><line x1="100" y1="0" x2="100" y2="200"/><line x1="200" y1="0" x2="200" y2="200"/><line x1="300" y1="0" x2="300" y2="200"/><line x1="400" y1="0" x2="400" y2="200"/><line x1="500" y1="0" x2="500" y2="200"/><line x1="600" y1="0" x2="600" y2="200"/><line x1="700" y1="0" x2="700" y2="200"/><line x1="800" y1="0" x2="800" y2="200"/><line x1="900" y1="0" x2="900" y2="200"/><line x1="0" y1="50" x2="1000" y2="50"/><line x1="0" y1="100" x2="1000" y2="100"/><line x1="0" y1="150" x2="1000" y2="150"/></g>
+          <polyline class="t-nine" vector-effect="non-scaling-stroke" points="0.0,163.7 5.0,164.5 10.0,155.1 15.0,162.0 20.0,161.0 25.0,164.1 30.0,164.3 35.0,161.6 40.0,163.5 45.0,163.7 50.0,169.3 55.0,156.8 60.0,148.5 65.0,151.9 70.0,161.5 75.0,167.9 80.0,168.0 85.0,159.4 90.0,149.0 95.0,150.2 100.0,149.0 105.0,147.0 110.0,153.5 115.0,150.0 120.0,145.3 125.0,148.2 130.0,142.8 135.0,136.0 140.0,135.7 145.0,146.5 150.0,147.4 155.0,148.9 160.0,150.9 165.0,142.2 170.0,146.1 175.0,143.2 180.0,143.5 185.0,150.6 190.0,145.9 195.0,143.5 200.0,149.0 205.0,152.7 210.0,150.0 215.0,137.8 220.0,136.7 225.0,137.1 230.0,142.7 235.0,141.2 240.0,139.8 245.0,140.4 250.0,144.0 255.0,133.0 260.0,129.2 265.0,136.4 270.0,142.7 275.0,147.2 280.0,137.0 285.0,141.2 290.0,134.7 295.0,134.4 300.0,126.7 305.0,124.5 310.0,122.3 315.0,126.3 320.0,131.8 325.0,130.1 330.0,130.0 335.0,140.5 340.0,137.2 345.0,140.8 350.0,137.0 355.0,146.1 360.0,144.5 365.0,139.9 370.0,148.9 375.0,147.8 380.0,144.6 385.0,148.6 390.0,154.0 395.0,152.3 400.0,155.4 405.0,155.3 410.0,162.8 415.0,154.7 420.0,155.9 425.0,159.2 430.0,161.9 435.0,160.5 440.0,156.7 445.0,148.7 450.0,147.9 455.0,141.9 460.0,141.5 465.0,149.4 470.0,145.7 475.0,151.5 480.0,149.0 485.0,150.1 490.0,150.0 495.0,158.5 500.0,164.1 505.0,158.6 510.0,157.7 515.0,150.5 520.0,159.1 525.0,151.2 530.0,158.1 535.0,153.5 540.0,163.1 545.0,158.2 550.0,162.0 555.0,165.2 560.0,155.8 565.0,159.4 570.0,149.1 575.0,149.4 580.0,154.0 585.0,148.8 590.0,147.0 595.0,154.7 600.0,145.7 605.0,152.8 610.0,149.8 615.0,150.1 620.0,154.9 625.0,154.0 630.0,157.4 635.0,158.0 640.0,145.2 645.0,145.9 650.0,152.9 655.0,155.7 660.0,146.4 665.0,151.4 670.0,146.9 675.0,153.2 680.0,148.9 685.0,152.9 690.0,152.2 695.0,142.6 700.0,147.6 705.0,140.7 710.0,136.8 715.0,139.7 720.0,134.4 725.0,142.4 730.0,143.3 735.0,135.9 740.0,142.5 745.0,145.1 750.0,135.2 755.0,130.1 760.0,139.5 765.0,147.2 770.0,146.1 775.0,145.9 780.0,147.0 785.0,146.4 790.0,152.1 795.0,145.4 800.0,143.8 805.0,145.4 810.0,144.5 815.0,150.0 820.0,149.8 825.0,143.0 830.0,151.0 835.0,149.7 840.0,156.2 845.0,161.2 850.0,162.3 855.0,163.7 860.0,164.7 865.0,163.3 870.0,164.7 875.0,153.6 880.0,155.7 885.0,157.8 890.0,161.4 895.0,154.3 900.0,157.9 905.0,156.2 910.0,164.0 915.0,152.9 920.0,152.0 925.0,154.4 930.0,147.9 935.0,151.8 940.0,149.8 945.0,160.6 950.0,152.2 955.0,158.9 960.0,155.8 965.0,148.3 970.0,145.6 975.0,141.3 980.0,152.3 985.0,158.2 990.0,152.8 995.0,149.6 1000.0,145.9"/>
+          <polyline class="t-twelve" vector-effect="non-scaling-stroke" points="0.0,54.6 5.0,44.6 10.0,59.9 15.0,71.8 20.0,59.7 25.0,70.9 30.0,85.5 35.0,69.7 40.0,78.8 45.0,64.0 50.0,80.6 55.0,90.4 60.0,102.3 65.0,109.7 70.0,91.4 75.0,72.0 80.0,65.8 85.0,69.9 90.0,79.4 95.0,68.7 100.0,70.5 105.0,57.5 110.0,62.9 115.0,59.7 120.0,58.7 125.0,53.8 130.0,49.9 135.0,46.3 140.0,54.7 145.0,70.6 150.0,80.7 155.0,90.1 160.0,94.1 165.0,88.2 170.0,92.4 175.0,97.6 180.0,96.1 185.0,79.1 190.0,78.4 195.0,87.3 200.0,84.7 205.0,84.4 210.0,81.8 215.0,71.1 220.0,69.0 225.0,48.3 230.0,59.9 235.0,66.0 240.0,57.0 245.0,59.5 250.0,51.8 255.0,43.5 260.0,42.0 265.0,44.3 270.0,57.7 275.0,51.9 280.0,66.1 285.0,67.0 290.0,65.2 295.0,75.2 300.0,85.3 305.0,82.3 310.0,61.8 315.0,71.1 320.0,51.7 325.0,37.4 330.0,36.9 335.0,55.6 340.0,45.4 345.0,57.9 350.0,64.1 355.0,59.8 360.0,54.6 365.0,47.4 370.0,57.5 375.0,74.3 380.0,80.5 385.0,67.6 390.0,61.4 395.0,56.9 400.0,64.8 405.0,61.9 410.0,74.8 415.0,73.5 420.0,76.1 425.0,72.0 430.0,65.1 435.0,83.2 440.0,70.6 445.0,61.4 450.0,55.7 455.0,77.2 460.0,84.6 465.0,89.6 470.0,87.9 475.0,77.6 480.0,83.9 485.0,90.1 490.0,100.1 495.0,98.5 500.0,105.4 505.0,96.9 510.0,81.4 515.0,68.8 520.0,64.2 525.0,72.3 530.0,86.4 535.0,83.5 540.0,70.0 545.0,68.5 550.0,50.3 555.0,42.5 560.0,49.2 565.0,62.9 570.0,69.3 575.0,51.2 580.0,36.2 585.0,45.5 590.0,43.2 595.0,30.3 600.0,20.3 605.0,28.3 610.0,32.6 615.0,44.6 620.0,45.4 625.0,44.9 630.0,36.9 635.0,53.6 640.0,64.9 645.0,44.6 650.0,40.8 655.0,34.8 660.0,55.9 665.0,41.3 670.0,57.0 675.0,64.4 680.0,55.7 685.0,49.5 690.0,66.5 695.0,73.3 700.0,58.0 705.0,67.9 710.0,70.6 715.0,68.8 720.0,58.0 725.0,63.4 730.0,57.4 735.0,48.4 740.0,51.4 745.0,66.1 750.0,61.2 755.0,51.2 760.0,73.2 765.0,68.6 770.0,80.5 775.0,70.8 780.0,67.1 785.0,75.3 790.0,76.4 795.0,67.5 800.0,78.0 805.0,85.0 810.0,82.6 815.0,77.2 820.0,73.0 825.0,84.6 830.0,95.3 835.0,93.8 840.0,101.9 845.0,87.2 850.0,86.6 855.0,98.9 860.0,106.4 865.0,111.9 870.0,91.1 875.0,91.4 880.0,70.4 885.0,68.8 890.0,83.0 895.0,82.7 900.0,64.1 905.0,65.1 910.0,69.0 915.0,60.2 920.0,64.4 925.0,59.2 930.0,69.3 935.0,52.5 940.0,60.9 945.0,58.8 950.0,69.3 955.0,59.3 960.0,57.2 965.0,63.6 970.0,68.4 975.0,48.8 980.0,57.3 985.0,50.1 990.0,60.5 995.0,59.4 1000.0,41.4"/>
+        </svg>
+        <p class="trace-legend">
+          <span class="leg leg-nine"><span class="leg-key">CH</span>09</span>
+          <span class="leg leg-twelve"><span class="leg-key">CH</span>12</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="wrap">
       <dl class="readout">
         <div class="readout-cell">
           <dt>Docker services in production</dt>
           <dd><span class="readout-val">14</span></dd>
         </div>
         <div class="readout-cell">
-          <dt>Open-source tools published</dt>
-          <dd><span class="readout-val">2</span></dd>
+          <dt>Inbound ports open</dt>
+          <dd><span class="readout-val">0</span></dd>
         </div>
         <div class="readout-cell">
-          <dt>Player records analysed</dt>
-          <dd><span class="readout-val">183</span></dd>
+          <dt>Open-source tools published</dt>
+          <dd><span class="readout-val">2</span></dd>
         </div>
       </dl>
     </div>
@@ -138,14 +144,15 @@
       <div class="sec-body">
         <div class="prose">
           <p>
-            I am a final-year BSc (Hons) Computer Science student at De Montfort University. At home
-            I run an ARM64 Fedora server hosting fourteen containerised services behind DNS
-            filtering and a VPN.
+            I am a final-year BSc (Hons) Computer Science student. I run an ARM64 Fedora server
+            with SELinux enforcing, hosting fourteen containerised services behind DNS filtering
+            and a VPN gateway. It is reachable from the internet through an outbound-only tunnel,
+            so the network has no inbound ports open.
           </p>
           <p>
-            Since 2024 I have worked freelance on IT and web services: websites, home servers, NAS
-            storage, network setup, and the support that keeps them running. I also publish
-            open-source developer tools and am working through the Cisco CCNA.
+            Since 2024 I have worked freelance on IT and web services: networks, servers and NAS
+            storage, plus the support that keeps them running. I also publish zero-dependency
+            open-source tooling and am working through the Cisco CCNA.
           </p>
           <p>
             I am looking for an IT support or infrastructure role.
@@ -156,7 +163,6 @@
           <li><span class="facts-key">Study</span><span class="facts-val">BSc (Hons) Computer Science &mdash; predicted 2:1, graduating 2026</span></li>
           <li><span class="facts-key">Cert</span><span class="facts-val">Cisco CCNA &mdash; in progress</span></li>
           <li><span class="facts-key">Status</span><span class="facts-val">Available immediately &mdash; on-site or remote</span></li>
-          <li><span class="facts-key">Base</span><span class="facts-val">Leicester, United Kingdom</span></li>
         </ul>
       </div>
     </div>
@@ -178,19 +184,21 @@
               <span class="work-tag">Infrastructure</span>
               <span class="work-year">2024 &mdash; present</span>
             </p>
-            <h3>Self-hosted media server &amp; compression pipeline</h3>
+            <h3>Self-hosted Linux service stack</h3>
             <p>
-              A Fedora Asahi server on Apple Silicon running fourteen Docker services: Jellyfin, the
-              *arr suite, qBittorrent behind a Gluetun VPN gateway, Pi-hole DNS filtering, n8n
-              automation and a Homepage dashboard. Backups run on a schedule with rsync.
+              Fourteen containerised services on ARM64 Fedora with SELinux enforcing, defined in a
+              single Docker Compose file. Egress for selected containers is policy-routed through a
+              Gluetun VPN gateway; Pi-hole handles DNS filtering for the network; n8n runs
+              scheduled automation. Backups run on a schedule with rsync.
             </p>
             <p>
-              A separate pipeline pulls episodes over SFTP, re-encodes them to x265 HEVC on an
-              RTX&nbsp;3070 and pushes them back. It has reclaimed over 500&nbsp;GB.
+              Public services are exposed through a Cloudflare Tunnel &mdash; an outbound-only
+              connector, so there is no port forwarding and no inbound port open on the network.
+              Rebuilds and redeploys are scripted end to end.
             </p>
             <ul class="stack">
               <li>Fedora / SELinux</li><li>Docker Compose</li><li>WireGuard</li>
-              <li>Pi-hole</li><li>PowerShell</li><li>ffmpeg / NVENC</li>
+              <li>Cloudflare Tunnel</li><li>Pi-hole</li><li>nginx</li><li>rsync</li>
             </ul>
           </li>
 
@@ -200,12 +208,12 @@
               <span class="work-tag">Data analysis</span>
               <span class="work-year">2025 &mdash; 2026</span>
             </p>
-            <h3>Regional playstyle analysis in professional Valorant</h3>
+            <h3>Statistical analysis of regional performance in esports</h3>
             <p>
-              Final-year dissertation. I scraped and cleaned a dataset of 183 professional players
-              from the 2025 VCT season, then used hypothesis testing to find which differences
-              between regions are statistically significant. Delivered as reproducible Jupyter
-              notebooks with an interactive explorer.
+              Final-year dissertation. I built a scraping and cleaning pipeline for a competitive
+              dataset, then applied hypothesis testing to separate statistically significant
+              regional differences from noise. Delivered as reproducible Jupyter notebooks with an
+              interactive explorer.
             </p>
             <ul class="stack">
               <li>Python</li><li>pandas</li><li>Jupyter</li><li>Hypothesis testing</li>
@@ -330,7 +338,7 @@
           <li>
             <p class="tl-year">Oct 2023 &mdash; Oct 2026 (expected)</p>
             <h3>BSc (Hons) Computer Science</h3>
-            <p class="tl-org">De Montfort University &middot; Predicted 2:1</p>
+            <p class="tl-org">Predicted 2:1</p>
             <p>
               Algorithms, object-oriented programming, operating systems and networks, databases,
               big data and machine learning, web applications, Agile development. Dissertation in
@@ -362,6 +370,10 @@
 
         <ul class="contact-list frame">
           <li>
+            <span class="label">Name</span>
+            <span class="plain contact-name">Abdurrahmaan Lakhota</span>
+          </li>
+          <li>
             <span class="label">Email</span>
             <a href="mailto:abdurrahmaanlakhota@gmail.com">abdurrahmaanlakhota@gmail.com</a>
           </li>
@@ -370,12 +382,8 @@
             <a href="https://github.com/kota1738" target="_blank" rel="noopener">github.com/kota1738</a>
           </li>
           <li>
-            <span class="label">Location</span>
-            <span class="plain">Leicester, UK &mdash; or remote</span>
-          </li>
-          <li>
             <span class="label">Availability</span>
-            <span class="plain">Immediate</span>
+            <span class="plain">Immediate &mdash; on-site or remote</span>
           </li>
         </ul>
       </div>
