@@ -1,2 +1,6 @@
 # local-only: the pre-2026-09-06 Mr. Robot design, kept for reference
 legacy/
+# local-only: superseded designs, archived by date (never published)
+legacy-*/
+# local-only: headless-Chrome verification screenshots and probe scripts
+.shots/
