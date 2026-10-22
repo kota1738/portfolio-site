@@ -184,31 +184,49 @@
           </li>
 
           <li>
-            <p class="work-meta"><span>Platform &middot; in progress</span><span class="work-year">2026</span></p>
+            <p class="work-meta"><span>Platform &middot; deployed</span><span class="work-year">2026</span></p>
             <h3>Infrastructure monitoring and alerting</h3>
             <p>
-              Observability for the estate below: a Python collector for CPU, memory, disk and
-              per-service health, Prometheus for storage, Grafana dashboards, alert rules that fire
-              on defined failure conditions, and runbooks for troubleshooting and recovery.
-              Specification complete; implementation underway.
+              A seven-container observability stack running on the server described below:
+              Prometheus, Alertmanager, Grafana, node_exporter, cAdvisor and blackbox_exporter,
+              each under a memory limit so monitoring cannot starve the services it watches.
+            </p>
+            <p>
+              Thirteen alert rules cover the host, every container and the HTTP services, with three
+              provisioned dashboards in the repository rather than clicked together. Delivery is
+              proven, not assumed: a real disk-space alert at 13% free fired and reached the
+              receiver, and its resolution did too. A deliberately permanent Watchdog alert exists
+              because a silent pipeline and a healthy system look identical.
             </p>
             <ul class="tags">
-              <li>Python</li><li>Prometheus</li><li>Grafana</li><li>Docker</li><li>Linux</li>
+              <li>Prometheus</li><li>Grafana</li><li>Alertmanager</li><li>Docker</li><li>Linux</li>
             </ul>
+            <a class="work-link" href="https://github.com/kota1738/monitoring-stack" target="_blank" rel="noopener">
+              View repository
+              <svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 16 16 8M9.4 8H16v6.6"/></svg>
+            </a>
           </li>
 
           <li>
-            <p class="work-meta"><span>Full-stack &middot; in progress</span><span class="work-year">2026</span></p>
+            <p class="work-meta"><span>Full-stack &middot; shipped</span><span class="work-year">2026</span></p>
             <h3>Staff management system</h3>
             <p>
-              A C# application over a relational database, taken from coursework to something
-              independently demonstrable: create, edit, delete and filter staff records, login and
-              role-based permissions, database constraints and error handling, automated tests and
-              a repeatable deployment. Implementation underway.
+              A C# REST API over EF Core with staff records, search, department filtering and paging,
+              cookie sessions with PBKDF2 password hashes, and Viewer, Manager and Admin policies
+              enforced at the HTTP layer rather than in a user interface.
+            </p>
+            <p>
+              Email uniqueness is a database index, not just a handler check, and a test proves it by
+              inserting a duplicate directly. Sixteen integration tests drive the real pipeline;
+              SQL Server migrations and a Docker Compose deployment make it repeatable.
             </p>
             <ul class="tags">
-              <li>C#</li><li>ASP.NET Core</li><li>SQL Server</li><li>xUnit</li>
+              <li>C#</li><li>ASP.NET Core</li><li>EF Core</li><li>SQL Server</li><li>xUnit</li>
             </ul>
+            <a class="work-link" href="https://github.com/kota1738/staff-management" target="_blank" rel="noopener">
+              View repository
+              <svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 16 16 8M9.4 8H16v6.6"/></svg>
+            </a>
           </li>
 
           <li>
@@ -296,6 +314,11 @@
       </div>
       <div class="sec-body">
         <div class="skills">
+          <div class="skill-group">
+            <h3>Observability</h3>
+            <p>Prometheus, Grafana, Alertmanager, node_exporter, cAdvisor, blackbox probes,
+               alert rules, dashboards as code, runbooks.</p>
+          </div>
           <div class="skill-group">
             <h3>Backend</h3>
             <p>Python and FastAPI service design, REST API design, SQLAlchemy and PostgreSQL,
