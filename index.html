@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Abdurrahmaan Lakhota — Infrastructure &amp; IT Support</title>
-  <meta name="description" content="Infrastructure and IT support. Linux administration, Docker service stacks, VPN gateway routing and DNS filtering, plus zero-dependency open-source Python tooling. Open to IT support and infrastructure roles.">
+  <title>Abdurrahmaan Lakhota — Backend &amp; Infrastructure</title>
+  <meta name="description" content="Backend and infrastructure engineering. Asynchronous job-processing APIs in Python, FastAPI and PostgreSQL, plus a self-hosted Linux container estate with VPN gateway routing and DNS filtering. Open to backend, platform and infrastructure roles.">
   <meta name="author" content="Abdurrahmaan Lakhota">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Abdurrahmaan Lakhota — Infrastructure &amp; IT Support">
-  <meta property="og:description" content="Linux administration, Docker service stacks, VPN gateway routing and DNS filtering, plus zero-dependency open-source Python tooling.">
+  <meta property="og:title" content="Abdurrahmaan Lakhota — Backend &amp; Infrastructure">
+  <meta property="og:description" content="Asynchronous job-processing APIs in Python, FastAPI and PostgreSQL, plus a self-hosted Linux container estate.">
   <meta property="og:url" content="https://kota.dpdns.org/">
   <meta property="og:site_name" content="Abdurrahmaan Lakhota">
 
@@ -39,7 +39,7 @@
   <div class="wrap header-inner">
     <a class="brand" href="#top">
       <span class="brand-mark" aria-hidden="true">AL</span>
-      <span class="brand-name">Infrastructure &amp; IT&nbsp;support</span>
+      <span class="brand-name">Backend &amp; infrastructure</span>
     </a>
 
     <nav class="nav" id="nav" aria-label="Primary">
@@ -69,19 +69,20 @@
   <!-- Print only: a printed page needs a name on it. -->
   <div class="wrap cv-head">
     <p class="cv-name">Abdurrahmaan Lakhota</p>
-    <p class="cv-role">Infrastructure &amp; IT support</p>
+    <p class="cv-role">Backend &amp; infrastructure</p>
     <p class="cv-contact">abdurrahmaanlakhota@gmail.com &nbsp;·&nbsp; github.com/kota1738 &nbsp;·&nbsp; United Kingdom</p>
     <p class="cv-contact">linkedin.com/in/abdurrahmaan-lakhota-209054305</p>
   </div>
 
   <section class="hero" id="top">
     <div class="wrap">
-      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Open to IT support and infrastructure roles</p>
-      <h1>Infrastructure<br><span>&amp; IT&nbsp;support</span></h1>
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Open to backend, platform and infrastructure roles</p>
+      <h1>Backend<br><span>&amp; infrastructure</span></h1>
       <p class="lede">
-        Final-year Computer Science student running a self-hosted Linux estate: fourteen
-        containerised services behind DNS filtering and a VPN gateway, reachable only through
-        an outbound tunnel.
+        Final-year Computer Science student who writes the services and runs the estate they sit
+        on: a tested asynchronous job-processing API in Python, FastAPI and PostgreSQL, and
+        fourteen containerised services behind DNS filtering and a VPN gateway, reachable only
+        through an outbound tunnel.
       </p>
       <div class="hero-actions">
         <a class="btn btn-solid" href="mailto:abdurrahmaanlakhota@gmail.com">Email me</a>
@@ -117,7 +118,13 @@
             open-source tooling and am working through the Cisco CCNA.
           </p>
           <p>
-            I am looking for an IT support or infrastructure role.
+            On the software side I build the parts that make a service survive contact with
+            reality: job state in PostgreSQL rather than in memory, workers that claim work
+            atomically instead of racing, retries that back off, and tests that run against the
+            same database and broker the deployment uses.
+          </p>
+          <p>
+            I am looking for a backend, platform or infrastructure role.
           </p>
         </div>
 
@@ -147,6 +154,62 @@
       </div>
       <div class="sec-body">
         <ol class="work-list">
+
+          <li>
+            <p class="work-meta"><span>Backend &middot; shipped</span><span class="work-year">2026</span></p>
+            <h3>Distributed task queue API</h3>
+            <p>
+              An asynchronous job-processing service. Clients submit work over REST and get a job
+              id back immediately; separate worker processes claim and execute it, and every job is
+              trackable through queued, running, succeeded, failed and cancelled. Job state and
+              JSON results live in PostgreSQL, and Redis is only a wake-up channel, so a broker
+              outage delays work instead of losing it.
+            </p>
+            <p>
+              Workers claim atomically with <code>SELECT &hellip; FOR UPDATE SKIP LOCKED</code> plus a
+              status guard, so concurrent workers never run the same job twice. Retries use
+              exponential backoff with per-job attempt limits, idempotency keys make client retries
+              safe, and a lease reaper requeues jobs orphaned by a crashed worker. JWT bearer auth
+              with per-user job isolation; payloads are validated against the job type's schema
+              before the row is written. 64 tests run in CI against real PostgreSQL and Redis.
+            </p>
+            <ul class="tags">
+              <li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>Redis</li>
+              <li>Docker Compose</li><li>pytest</li><li>GitHub Actions</li>
+            </ul>
+            <a class="work-link" href="https://github.com/kota1738/distributed-task-queue" target="_blank" rel="noopener">
+              View repository
+              <svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 16 16 8M9.4 8H16v6.6"/></svg>
+            </a>
+          </li>
+
+          <li>
+            <p class="work-meta"><span>Platform &middot; in progress</span><span class="work-year">2026</span></p>
+            <h3>Infrastructure monitoring and alerting</h3>
+            <p>
+              Observability for the estate below: a Python collector for CPU, memory, disk and
+              per-service health, Prometheus for storage, Grafana dashboards, alert rules that fire
+              on defined failure conditions, and runbooks for troubleshooting and recovery.
+              Specification complete; implementation underway.
+            </p>
+            <ul class="tags">
+              <li>Python</li><li>Prometheus</li><li>Grafana</li><li>Docker</li><li>Linux</li>
+            </ul>
+          </li>
+
+          <li>
+            <p class="work-meta"><span>Full-stack &middot; in progress</span><span class="work-year">2026</span></p>
+            <h3>Staff management system</h3>
+            <p>
+              A C# application over a relational database, taken from coursework to something
+              independently demonstrable: create, edit, delete and filter staff records, login and
+              role-based permissions, database constraints and error handling, automated tests and
+              a repeatable deployment. Implementation underway.
+            </p>
+            <ul class="tags">
+              <li>C#</li><li>ASP.NET Core</li><li>SQL Server</li><li>xUnit</li>
+            </ul>
+          </li>
 
           <li>
             <p class="work-meta"><span>Infrastructure</span><span class="work-year">2024 &mdash; present</span></p>
@@ -183,7 +246,7 @@
           </li>
 
           <li>
-            <p class="work-meta"><span>Open source</span><span class="work-year">2026</span></p>
+            <p class="work-meta"><span>Open source &middot; private repository</span><span class="work-year">2026</span></p>
             <h3>anchorwatch</h3>
             <p>
               A zero-dependency command-line linter for Markdown documentation. It reimplements
@@ -193,14 +256,10 @@
             <ul class="tags">
               <li>Python</li><li>pytest</li><li>ruff</li><li>GitHub Actions</li>
             </ul>
-            <a class="work-link" href="https://github.com/kota1738/anchorwatch" target="_blank" rel="noopener">
-              View repository
-              <svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 16 16 8M9.4 8H16v6.6"/></svg>
-            </a>
           </li>
 
           <li>
-            <p class="work-meta"><span>Open source</span><span class="work-year">2026</span></p>
+            <p class="work-meta"><span>Open source &middot; private repository</span><span class="work-year">2026</span></p>
             <h3>changelog-guard</h3>
             <p>
               A linter that checks <code>CHANGELOG.md</code> against a repository's git tags and
@@ -210,10 +269,6 @@
             <ul class="tags">
               <li>Python</li><li>Git plumbing</li><li>pytest</li><li>CI</li>
             </ul>
-            <a class="work-link" href="https://github.com/kota1738/changelog-guard" target="_blank" rel="noopener">
-              View repository
-              <svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 16 16 8M9.4 8H16v6.6"/></svg>
-            </a>
           </li>
 
           <li>
@@ -241,6 +296,12 @@
       </div>
       <div class="sec-body">
         <div class="skills">
+          <div class="skill-group">
+            <h3>Backend</h3>
+            <p>Python and FastAPI service design, REST API design, SQLAlchemy and PostgreSQL,
+               Redis, pydantic validation, JWT authentication, background workers, pytest,
+               GitHub Actions CI.</p>
+          </div>
           <div class="skill-group">
             <h3>Systems &amp; support</h3>
             <p>Windows and Linux administration, Microsoft 365, hardware diagnostics and repair,
@@ -318,7 +379,7 @@
       </div>
       <div class="sec-body">
         <p class="contact-lede">
-          Open to IT support and infrastructure roles, and to freelance work.
+          Open to backend, platform, infrastructure and IT support roles, and to freelance work.
           Email is the fastest way to reach me.
         </p>
 
