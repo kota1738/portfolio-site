@@ -677,15 +677,13 @@ html:not(.js) #theme-toggle { display: none; }
 
   a { color: #000; text-decoration: none; }
   .work-link { margin-top: 0.4rem; }
-  .work-link[href]::after,
-  .contact-list a[href]::after {
+  /* Work links read "View repository"; contact rows already show the address. */
+  .work-link[href]::after {
     content: " " attr(href);
     font-family: var(--mono);
     font-size: 8pt;
     color: var(--dim);
     word-break: break-all;
   }
-  /* The email address is already the visible text; "mailto:" adds nothing on paper. */
-  .contact-list a[href^="mailto:"]::after { content: none; }
   .work-link .ext { display: none; }
 }
