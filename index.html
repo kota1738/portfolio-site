@@ -156,7 +156,7 @@
         <ol class="work-list">
 
           <li>
-            <p class="work-meta"><span>Backend &middot; shipped</span><span class="work-year">2026</span></p>
+            <p class="work-meta"><span>Backend &middot; running</span><span class="work-year">2026</span></p>
             <h3>Distributed task queue API</h3>
             <p>
               An asynchronous job-processing service. Clients submit work over REST and get a job
@@ -172,6 +172,11 @@
               safe, and a lease reaper requeues jobs orphaned by a crashed worker. JWT bearer auth
               with per-user job isolation; payloads are validated against the job type's schema
               before the row is written. 68 tests run in CI against real PostgreSQL and Redis.
+            </p>
+            <p>
+              Running on the home server as five containers with the API and database bound to
+              loopback, so the monitoring stack can scrape its <code>/metrics</code> over a private
+              Docker network without exposing a port.
             </p>
             <ul class="tags">
               <li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>Redis</li>
@@ -192,10 +197,11 @@
               each under a memory limit so monitoring cannot starve the services it watches.
             </p>
             <p>
-              Thirteen alert rules cover the host, every container and the HTTP services, with three
-              provisioned dashboards in the repository rather than clicked together. Delivery is
-              proven, not assumed: a real disk-space alert at 13% free fired and reached the
-              receiver, and its resolution did too. A deliberately permanent Watchdog alert exists
+              Thirteen alert rules cover the host, every container, the HTTP services and the task
+              queue API's own metrics, with three provisioned dashboards in the repository rather
+              than clicked together. All eight scrape targets are up, and delivery is proven, not
+              assumed: a real disk-space alert at 13% free fired and a hand-fired test alert and its
+              resolution both reached Discord. A deliberately permanent Watchdog alert exists
               because a silent pipeline and a healthy system look identical.
             </p>
             <ul class="tags">
