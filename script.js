@@ -105,55 +105,6 @@
     }).observe(sentinel);
   }
 
-  /* --- Reveal sections on scroll ---------------------------------------- */
-
-  var sections = Array.prototype.slice.call(document.querySelectorAll('.section'));
-
-  function revealAll() {
-    sections.forEach(function (section) { section.classList.remove('reveal'); });
-  }
-
-  if (sections.length && 'IntersectionObserver' in window) {
-    sections.forEach(function (section) { section.classList.add('reveal'); });
-
-    var observerRan = false;
-
-    var revealObserver = new IntersectionObserver(function (entries) {
-      observerRan = true;
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.03 });
-
-    try {
-      sections.forEach(function (section) { revealObserver.observe(section); });
-    } catch (e) {
-      revealAll();
-    }
-
-    /* Failsafe: the observer delivers an initial callback for every target,
-       intersecting or not. If that never arrives the implementation is broken,
-       so drop the effect rather than leave content permanently invisible.
-       (Checking for "nothing visible yet" instead would misfire on every load,
-       since the hero fills the viewport and no section starts in view.) */
-    window.setTimeout(function () {
-      if (!observerRan) revealAll();
-    }, 1500);
-
-    /* Belt and braces alongside the print stylesheet: Ctrl+P from an unscrolled
-       page must never print blank sections. */
-    if (window.matchMedia) {
-      var printMq = window.matchMedia('print');
-      var onPrint = function (e) { if (!e || e.matches) revealAll(); };
-      if (printMq.addEventListener) printMq.addEventListener('change', onPrint);
-      else if (printMq.addListener) printMq.addListener(onPrint);
-    }
-    window.addEventListener('beforeprint', function () { revealAll(); });
-  }
-
   /* --- Active navigation link -------------------------------------------- */
 
   var links = Array.prototype.slice.call(document.querySelectorAll('.nav a[href^="#"]'));
