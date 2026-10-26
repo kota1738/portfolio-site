@@ -1,10 +1,30 @@
 /* ==========================================================================
    Abdurrahmaan Lakhota — portfolio
-   Vanilla CSS. No build step, no dependencies, no external requests.
+   Vanilla CSS. No build step, no dependencies, no external requests
+   (fonts are self-hosted).
 
    Dark by default, light honoured from the OS or the toggle. The palette is
    the same measured set as before; every text pair clears WCAG AA.
    ========================================================================== */
+
+/* --- Fonts: Geist and Geist Mono, self-hosted (SIL OFL 1.1, Geist-OFL.txt) -- */
+/* Variable fonts: one file each covers every weight. Served from this site,
+   so the page still makes no external requests. */
+
+@font-face {
+  font-family: "Geist";
+  src: url("Geist-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src: url("GeistMono-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* --- Tokens: dark (default) --------------------------------------------- */
 
@@ -19,9 +39,9 @@
   --signal:  #e0a05a;   /* ochre, availability only 7.89 /  7.03 */
   --header-bg: rgba(14, 26, 30, 0.88);
 
-  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI Variable Text", "Segoe UI",
-          Roboto, "Helvetica Neue", Arial, sans-serif;
-  --mono: ui-monospace, SFMono-Regular, "SF Mono", "Cascadia Mono", Consolas,
+  --sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI Variable Text", "Segoe UI",
+          system-ui, sans-serif;
+  --mono: "Geist Mono", ui-monospace, SFMono-Regular, "SF Mono", "Cascadia Mono", Consolas,
           "Liberation Mono", Menlo, monospace;
 
   --wrap: 1060px;

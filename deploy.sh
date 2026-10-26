@@ -11,7 +11,8 @@ set -euo pipefail
 
 HOST="kota@server"
 DEST="/home/kota/portfolio-site"
-FILES=(index.html 404.html style.css script.js robots.txt sitemap.xml default.conf Dockerfile)
+FILES=(index.html 404.html style.css script.js robots.txt sitemap.xml default.conf Dockerfile
+       Geist-Variable.woff2 GeistMono-Variable.woff2 Geist-OFL.txt)
 
 cd "$(dirname "$0")"
 
