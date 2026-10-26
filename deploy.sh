@@ -15,6 +15,12 @@ FILES=(index.html 404.html style.css script.js robots.txt sitemap.xml default.co
 
 cd "$(dirname "$0")"
 
+# New ?v= on the css/js links every deploy: Cloudflare tells browsers to keep style.css for 4 hours,
+# so without a new URL a redeploy can stay invisible that long.
+V=$(date +%Y%m%d%H%M)
+sed -i -E "s#(href=\"/?style\.css)(\?v=[0-9]+)?\"#\1?v=$V\"#; s#(src=\"script\.js)(\?v=[0-9]+)?\"#\1?v=$V\"#" index.html 404.html
+echo "==> asset version $V"
+
 echo "==> uploading $(( ${#FILES[@]} )) files to $HOST:$DEST"
 scp -q "${FILES[@]}" "$HOST:$DEST/"
 
