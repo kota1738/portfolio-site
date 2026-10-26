@@ -4,3 +4,6 @@ legacy/
 legacy-*/
 # local-only: headless-Chrome verification screenshots and probe scripts
 .shots/
+
+# local AI tooling (design skills), not part of the site
+.claude/
