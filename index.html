@@ -118,16 +118,22 @@
     </div>
   </section>
 
-  <!-- Tagline -->
-  <section class="tagline" aria-label="A line from Mr. Robot">
-    <figure class="wrap tagline-figure">
+  <!-- Quotes about computing from film and TV; script.js rotates them. -->
+  <section class="tagline" aria-label="Quotes about computing from film and TV">
+    <figure class="wrap tagline-figure" id="quote">
       <blockquote>
         <p class="tagline-text" id="tagline">
           A bug is never just a mistake. It represents something bigger&hellip; an error of
           thinking that makes you who you are.
         </p>
       </blockquote>
-      <figcaption class="tagline-cite">Elliot Alderson, <cite>Mr. Robot</cite></figcaption>
+      <figcaption class="tagline-cite">
+        <span id="quote-who">Elliot Alderson</span>, <cite id="quote-src">Mr. Robot</cite>
+      </figcaption>
+      <div class="quote-controls">
+        <button class="quote-btn" id="quote-pause" type="button" aria-pressed="false">Pause</button>
+        <button class="quote-btn" id="quote-next" type="button">Next quote</button>
+      </div>
     </figure>
   </section>
 

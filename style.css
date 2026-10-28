@@ -465,6 +465,34 @@ code {
   color: var(--dim);
 }
 .tagline-cite cite { font-style: normal; color: var(--accent); }
+
+/* Rotating quotes: the figure keeps the height of the longest quote (set by
+   script.js) so the page never jumps; a swap is a plain opacity fade. */
+.tagline-figure { display: flex; flex-direction: column; justify-content: center; }
+.tagline-figure blockquote,
+.tagline-cite { transition: opacity var(--t-color) var(--ease); }
+.tagline-figure.is-swapping blockquote,
+.tagline-figure.is-swapping .tagline-cite { opacity: 0; }
+
+.quote-controls { display: flex; gap: 0.5rem; margin-top: 1.5rem; }
+.quote-btn {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-full);
+  background: none;
+  color: var(--dim);
+  font: inherit;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color var(--t-color) var(--ease), border-color var(--t-color) var(--ease),
+              transform var(--t-color) var(--ease);
+}
+.quote-btn:hover { color: var(--ink-hi); border-color: var(--line-hi); }
+.quote-btn:active { transform: scale(0.96); }
+.quote-btn[aria-pressed="true"] { color: var(--ink-hi); border-color: var(--accent); }
+html:not(.js) .quote-controls { display: none; }
 .tagline-text {
   max-width: 900px;
   margin: 0;

@@ -136,20 +136,108 @@
   var tagline = document.getElementById('tagline');
   var words = [];
 
-  if (tagline) {
-    var parts = tagline.textContent.trim().split(/\s+/);
+  /* Splits text into word spans; lit=true shows them all at once (used after
+     the first quote has been read in on scroll). */
+  function setWords(text, lit) {
+    words.length = 0;
     tagline.textContent = '';
+    var parts = text.trim().split(/\s+/);
     parts.forEach(function (word, i) {
       var span = document.createElement('span');
-      span.className = 'w';
+      span.className = lit ? 'w on' : 'w';
       span.textContent = word;
       tagline.appendChild(span);
       if (i < parts.length - 1) tagline.appendChild(document.createTextNode(' '));
       words.push(span);
     });
+  }
+
+  /* --- Rotating quotes ----------------------------------------------------- */
+  /* The first entry is the one already in the HTML. Rotation starts once it
+     has been read in, and never runs on its own under reduced motion. */
+
+  var QUOTES = [
+    { text: tagline ? tagline.textContent : '', who: 'Elliot Alderson', src: 'Mr. Robot' },
+    { text: 'Computers aren’t the thing. They’re the thing that gets us to the thing.', who: 'Joe MacMillan', src: 'Halt and Catch Fire' },
+    { text: 'A strange game. The only winning move is not to play.', who: 'Joshua', src: 'WarGames' },
+    { text: 'On the other side of the screen, it all looks so easy.', who: 'Kevin Flynn', src: 'Tron' },
+    { text: 'I’m sorry, Dave. I’m afraid I can’t do that.', who: 'HAL 9000', src: '2001: A Space Odyssey' },
+    { text: 'Never send a human to do a machine’s job.', who: 'Agent Smith', src: 'The Matrix' }
+  ];
+  var ROTATE_MS = 9000;
+
+  var quoteFig = document.getElementById('quote');
+  var quoteWho = document.getElementById('quote-who');
+  var quoteSrc = document.getElementById('quote-src');
+  var pauseBtn = document.getElementById('quote-pause');
+  var nextBtn = document.getElementById('quote-next');
+  var quoteIdx = 0;
+  var rotateTimer = null;
+  var paused = reduceMotion;
+
+  /* Reserve the height of the tallest quote at the current width. */
+  function sizeQuoteBox() {
+    var probe = quoteFig.cloneNode(true);
+    probe.removeAttribute('id');
+    probe.style.cssText = 'position:absolute;visibility:hidden;left:0;top:0;min-height:0;width:' + quoteFig.offsetWidth + 'px';
+    quoteFig.parentNode.appendChild(probe);
+    var max = 0;
+    QUOTES.forEach(function (q) {
+      probe.querySelector('.tagline-text').textContent = q.text;
+      probe.querySelector('cite').textContent = q.src;
+      max = Math.max(max, probe.offsetHeight);
+    });
+    probe.parentNode.removeChild(probe);
+    quoteFig.style.minHeight = max + 'px';
+  }
+
+  function showQuote(i) {
+    quoteIdx = (i + QUOTES.length) % QUOTES.length;
+    var q = QUOTES[quoteIdx];
+    var swap = function () {
+      setWords(q.text, true);
+      quoteWho.textContent = q.who;
+      quoteSrc.textContent = q.src;
+      quoteFig.classList.remove('is-swapping');
+    };
+    if (reduceMotion) { swap(); return; }
+    quoteFig.classList.add('is-swapping');
+    setTimeout(swap, 200);
+  }
+
+  function schedule() {
+    clearInterval(rotateTimer);
+    if (!paused) rotateTimer = setInterval(function () { showQuote(quoteIdx + 1); }, ROTATE_MS);
+  }
+
+  function startRotation() {
+    if (rotateTimer || !quoteFig) return;
+    schedule();
+  }
+
+  if (tagline) {
+    setWords(tagline.textContent, false);
+
+    if (quoteFig && quoteWho && quoteSrc && pauseBtn && nextBtn) {
+      sizeQuoteBox();
+      window.addEventListener('resize', sizeQuoteBox);
+      pauseBtn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+      pauseBtn.addEventListener('click', function () {
+        paused = !paused;
+        pauseBtn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+        schedule();
+      });
+      nextBtn.addEventListener('click', function () {
+        showQuote(quoteIdx + 1);
+        schedule();
+      });
+    } else {
+      quoteFig = null;
+    }
 
     if (reduceMotion || !hasIO) {
       words.forEach(function (w) { w.classList.add('on'); });
+      startRotation();
     } else {
       /* The trigger line sits 35% up from the bottom of the screen; words are
          taken in reading order so they never light up out of sequence. */
@@ -163,6 +251,7 @@
           wordObserver.unobserve(words[lit]);
           lit++;
         }
+        if (lit === words.length) { wordObserver.disconnect(); startRotation(); }
       }, { rootMargin: '0px 0px -35% 0px', threshold: 0 });
       words.forEach(function (w) { wordObserver.observe(w); });
     }
