@@ -7,3 +7,4 @@ legacy-*/
 
 # local AI tooling (design skills), not part of the site
 .claude/
+.impeccable/

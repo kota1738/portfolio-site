@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Page not found — Abdurrahmaan Lakhota</title>
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#e9ece9" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0e1a1e" media="(prefers-color-scheme: dark)">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230e1a1e'/%3E%3Crect x='2.5' y='2.5' width='59' height='59' fill='none' stroke='%234a757e' stroke-width='2'/%3E%3Ctext x='32' y='42' font-family='Consolas,Menlo,monospace' font-size='26' font-weight='700' letter-spacing='-1' fill='%237cb2bd' text-anchor='middle'%3EAL%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23000'/%3E%3Ctext x='32' y='41' font-family='ui-monospace,Consolas,Menlo,monospace' font-size='24' font-weight='700' letter-spacing='-1' fill='%237cb2bd' text-anchor='middle'%3EAL%3C/text%3E%3C/svg%3E">
   <link rel="preload" href="/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/style.css?v=202610261744">
   <script>
@@ -23,28 +23,24 @@
     .lost {
       display: grid;
       align-content: center;
-      min-height: 100vh;
-      min-height: 100svh;
-      padding-block: clamp(3rem, 10vh, 6rem);
+      min-height: 100dvh;
+      padding-block: 4rem;
     }
-    .lost-inner { max-width: 34rem; }
-
     .lost-code {
       margin: 0 0 1rem;
       font-family: var(--mono);
-      font-size: 0.78rem;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--dim);
+      font-size: 0.75rem;
+      line-height: 1rem;
+      color: var(--accent);
     }
     .lost h1 {
+      max-width: 680px;
       margin-bottom: 1rem;
-      font-size: clamp(1.6rem, 4.5vw, 2.15rem);
+      font-size: 3rem;
+      line-height: 1;
+      letter-spacing: -0.04em;
     }
-    .lost p {
-      max-width: 46ch;
-      margin-bottom: 1.1em;
-    }
+    .lost p { max-width: 46ch; margin-bottom: 1.5rem; }
   </style>
 </head>
 <body>
@@ -52,19 +48,16 @@
 <a class="skip-link" href="#main">Skip to content</a>
 
 <main class="lost" id="main">
-  <div class="wrap lost-inner">
-    <p class="lost-code">404 — page not found</p>
+  <div class="wrap">
+    <p class="lost-code">404 · page not found</p>
     <h1>That page does not exist.</h1>
     <p>
       The link may be out of date, or the address slightly off. Everything on this site lives
       on a single page.
     </p>
-    <p>
-      <a class="btn btn-solid" href="/">Back to the homepage</a>
-    </p>
+    <p><a class="btn btn-primary" href="/">Back to the homepage</a></p>
   </div>
 </main>
 
-<script src="script.js?v=202610261744"></script>
 </body>
 </html>

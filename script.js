@@ -8,55 +8,40 @@
   var root = document.documentElement;
   root.classList.add('js');
 
-  /* --- Theme ------------------------------------------------------------ */
-  /* The <head> bootstrap has already applied any stored preference so there
-     is no flash; this only wires up the toggle and keeps the label honest. */
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasIO = 'IntersectionObserver' in window;
+
+  /* --- Theme: System / Dark / Light in the footer ------------------------- */
+  /* The <head> bootstrap has already applied any stored choice, so there is
+     no flash. "System" clears the stored choice and follows the OS. */
 
   var STORAGE_KEY = 'al-theme';
-  var toggle = document.getElementById('theme-toggle');
+  var themeButtons = Array.prototype.slice.call(document.querySelectorAll('[data-theme-choice]'));
 
-  function systemPrefersDark() {
-    return !(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
+  function storedTheme() {
+    try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
   }
 
-  function currentTheme() {
-    var set = root.getAttribute('data-theme');
-    if (set === 'dark' || set === 'light') return set;
-    return systemPrefersDark() ? 'dark' : 'light';
-  }
-
-  function syncLabel(theme) {
-    if (!toggle) return;
-    toggle.setAttribute(
-      'aria-label',
-      theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'
-    );
-  }
-
-  if (toggle) {
-    syncLabel(currentTheme());
-
-    toggle.addEventListener('click', function () {
-      var next = currentTheme() === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      syncLabel(next);
-      try { localStorage.setItem(STORAGE_KEY, next); } catch (e) { /* private mode */ }
-    });
-
-    /* Follow the OS while the visitor has expressed no preference of their own. */
-    if (window.matchMedia) {
-      var mq = window.matchMedia('(prefers-color-scheme: dark)');
-      var onChange = function () {
-        var stored = null;
-        try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-        if (stored !== 'dark' && stored !== 'light') {
-          root.removeAttribute('data-theme');
-          syncLabel(currentTheme());
-        }
-      };
-      if (mq.addEventListener) mq.addEventListener('change', onChange);
-      else if (mq.addListener) mq.addListener(onChange);
+  function applyTheme(choice) {
+    if (choice === 'dark' || choice === 'light') {
+      root.setAttribute('data-theme', choice);
+      try { localStorage.setItem(STORAGE_KEY, choice); } catch (e) { /* private mode */ }
+    } else {
+      root.removeAttribute('data-theme');
+      try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+      choice = 'system';
     }
+    themeButtons.forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-theme-choice') === choice ? 'true' : 'false');
+    });
+  }
+
+  if (themeButtons.length) {
+    var s = storedTheme();
+    applyTheme(s === 'dark' || s === 'light' ? s : 'system');
+    themeButtons.forEach(function (b) {
+      b.addEventListener('click', function () { applyTheme(b.getAttribute('data-theme-choice')); });
+    });
   }
 
   /* --- Mobile navigation ------------------------------------------------ */
@@ -64,45 +49,34 @@
   var menuBtn = document.getElementById('menu-btn');
   var nav = document.getElementById('nav');
 
-  function closeMenu() {
+  function setMenu(open) {
     if (!nav || !menuBtn) return;
-    nav.classList.remove('is-open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-    menuBtn.setAttribute('aria-label', 'Open menu');
+    nav.classList.toggle('is-open', open);
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.style.overflow = open ? 'hidden' : '';
   }
 
   if (menuBtn && nav) {
     menuBtn.addEventListener('click', function () {
-      var open = nav.classList.toggle('is-open');
-      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      setMenu(!nav.classList.contains('is-open'));
     });
-
     nav.addEventListener('click', function (event) {
-      if (event.target.closest && event.target.closest('a')) closeMenu();
+      if (event.target.closest && event.target.closest('a')) setMenu(false);
     });
-
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape' && nav.classList.contains('is-open')) {
-        closeMenu();
+        setMenu(false);
         menuBtn.focus();
       }
     });
-  }
-
-  /* --- Header hairline once the page has scrolled ----------------------- */
-
-  var header = document.getElementById('site-header');
-
-  if (header && 'IntersectionObserver' in window) {
-    var sentinel = document.createElement('div');
-    sentinel.setAttribute('aria-hidden', 'true');
-    sentinel.style.cssText = 'position:absolute;top:0;left:0;height:1px;width:1px;';
-    document.body.prepend(sentinel);
-
-    new IntersectionObserver(function (entries) {
-      header.classList.toggle('is-stuck', !entries[0].isIntersecting);
-    }).observe(sentinel);
+    /* Leaving the narrow layout with the menu open must not leave the page locked. */
+    if (window.matchMedia) {
+      var wide = window.matchMedia('(min-width: 768px)');
+      var onWide = function () { if (wide.matches) setMenu(false); };
+      if (wide.addEventListener) wide.addEventListener('change', onWide);
+      else if (wide.addListener) wide.addListener(onWide);
+    }
   }
 
   /* --- Active navigation link -------------------------------------------- */
@@ -112,9 +86,8 @@
     .map(function (link) { return document.getElementById(link.getAttribute('href').slice(1)); })
     .filter(Boolean);
 
-  if (targets.length && 'IntersectionObserver' in window) {
+  if (targets.length && hasIO) {
     var visible = {};
-
     var setActive = function () {
       var id = null;
       for (var i = 0; i < targets.length; i++) {
@@ -127,15 +100,106 @@
         else link.removeAttribute('aria-current');
       });
     };
-
     var navObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        visible[entry.target.id] = entry.isIntersecting;
-      });
+      entries.forEach(function (entry) { visible[entry.target.id] = entry.isIntersecting; });
       setActive();
     }, { rootMargin: '-25% 0px -55% 0px', threshold: 0 });
-
     targets.forEach(function (target) { navObserver.observe(target); });
+  }
+
+  /* --- Scroll reveals: rise and fade in once ------------------------------ */
+  /* Only switched on when IntersectionObserver exists, so nothing can stay
+     hidden. Print CSS forces everything visible, and so does beforeprint. */
+
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+
+  function revealAll() {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+    words.forEach(function (w) { w.classList.add('on'); });
+  }
+
+  if (reveals.length && hasIO) {
+    root.classList.add('reveals');
+    var revealObserver = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+    reveals.forEach(function (el) { revealObserver.observe(el); });
+  }
+
+  /* --- Tagline: each word lights up as it crosses a line on the screen ---- */
+
+  var tagline = document.getElementById('tagline');
+  var words = [];
+
+  if (tagline) {
+    var parts = tagline.textContent.trim().split(/\s+/);
+    tagline.textContent = '';
+    parts.forEach(function (word, i) {
+      var span = document.createElement('span');
+      span.className = 'w';
+      span.textContent = word;
+      tagline.appendChild(span);
+      if (i < parts.length - 1) tagline.appendChild(document.createTextNode(' '));
+      words.push(span);
+    });
+
+    if (reduceMotion || !hasIO) {
+      words.forEach(function (w) { w.classList.add('on'); });
+    } else {
+      /* The trigger line sits 35% up from the bottom of the screen; words are
+         taken in reading order so they never light up out of sequence. */
+      var lit = 0;
+      var wordObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) entry.target.dataset.past = '1';
+        });
+        while (lit < words.length && words[lit].dataset.past === '1') {
+          words[lit].classList.add('on');
+          wordObserver.unobserve(words[lit]);
+          lit++;
+        }
+      }, { rootMargin: '0px 0px -35% 0px', threshold: 0 });
+      words.forEach(function (w) { wordObserver.observe(w); });
+    }
+  }
+
+  window.addEventListener('beforeprint', revealAll);
+
+  /* --- Copy email ----------------------------------------------------------- */
+
+  var copyBtn = document.getElementById('copy-email');
+  var copyStatus = document.getElementById('copy-status');
+
+  if (copyBtn) {
+    var label = copyBtn.querySelector('.copy-label');
+    var timer = null;
+    copyBtn.addEventListener('click', function () {
+      var email = copyBtn.getAttribute('data-email');
+      var done = function () {
+        copyBtn.classList.add('is-done');
+        if (label) label.textContent = 'Copied';
+        if (copyStatus) copyStatus.textContent = email + ' copied to your clipboard.';
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          copyBtn.classList.remove('is-done');
+          if (label) label.textContent = 'Copy email address';
+          if (copyStatus) copyStatus.textContent = '';
+        }, 2400);
+      };
+      var fail = function () {
+        if (copyStatus) copyStatus.textContent = 'Copy is blocked here. The address is ' + email + '.';
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(done, fail);
+      } else {
+        fail();
+      }
+    });
   }
 
   /* --- Footer year -------------------------------------------------------- */
